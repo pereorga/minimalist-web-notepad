@@ -1,0 +1,3 @@
+RewriteEngine On
+
+RewriteRule ^([a-zA-Z0-9]+)$ index.php?f=$1
