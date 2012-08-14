@@ -18,8 +18,4 @@ $(function() {
             $("#print").text(vtext);
         }
     }, 1000);
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 6c1c54f61a6b5c6c9cf0122924d043bf3b0d833b
