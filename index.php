@@ -14,23 +14,21 @@ function sanitize_file_name($filename) {
 
 if (!isset($_GET["f"])) {
     $lines = file("words.txt");
-    $fit = trim($lines[array_rand($lines)], "\n");
-    while (file_exists("_tmp/".$fit) && strlen($fit) < 10) {
-        $fit .= rand(0,9);
+    $name = trim($lines[array_rand($lines)], "\n");
+    while (file_exists("_tmp/".$name) && strlen($name) < 10) {
+        $name .= rand(0,9);
     }
-    if (strlen($fit) < 10) {
-        header("Location: ".$WEB_URL."/".$fit);
+    if (strlen($name) < 10) {
+        header("Location: ".$WEB_URL."/".$name);
     }
     die();
 }
-else {
-    $fit = sanitize_file_name($_GET["f"]);
-}
 
-$pfit = "_tmp/" . $fit;
+$name = sanitize_file_name($_GET["f"]);
+$path = "_tmp/".$name;
 
 if (isset($_POST["t"])) {
-    file_put_contents($pfit, $_POST["t"]);
+    file_put_contents($path, $_POST["t"]);
     die();
 }
 ?><!DOCTYPE html>
@@ -39,7 +37,7 @@ if (isset($_POST["t"])) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Pere Orga" />
-    <title><?php print $fit; ?></title>
+    <title><?php print $name; ?></title>
     <link href="//raw.github.com/necolas/normalize.css/master/normalize.css" rel="stylesheet" media="all" />
     <link href="screen.css" rel="stylesheet" media="screen" />
     <link href="print.css" rel="stylesheet" media="print" />
@@ -48,8 +46,8 @@ if (isset($_POST["t"])) {
 <body>
     <div>
         <textarea id="content" spellcheck="true"><?php 
-            if (file_exists($pfit)) {
-                print htmlspecialchars(file_get_contents($pfit));
+            if (file_exists($path)) {
+                print htmlspecialchars(file_get_contents($path));
             }
 ?></textarea>
     </div>
