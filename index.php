@@ -1,6 +1,8 @@
 <?php
 
-$WEB_URL = "http://orga.cat/notes";
+$URL = "http://orga.cat/notes";
+$FOLDER = "_tmp";
+
 
 //original function source code from wordpress
 function sanitize_file_name($filename) {
@@ -15,17 +17,17 @@ function sanitize_file_name($filename) {
 if (!isset($_GET["f"])) {
     $lines = file("words.txt");
     $name = trim($lines[array_rand($lines)], "\n");
-    while (file_exists("_tmp/".$name) && strlen($name) < 10) {
+    while (file_exists($FOLDER."/".$name) && strlen($name) < 10) {
         $name .= rand(0,9);
     }
     if (strlen($name) < 10) {
-        header("Location: ".$WEB_URL."/".$name);
+        header("Location: ".$URL."/".$name);
     }
     die();
 }
 
 $name = sanitize_file_name($_GET["f"]);
-$path = "_tmp/".$name;
+$path = $FOLDER."/".$name;
 
 if (isset($_POST["t"])) {
     file_put_contents($path, $_POST["t"]);
