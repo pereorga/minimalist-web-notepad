@@ -13,13 +13,9 @@ function sanitize_file_name($filename) {
 
 
 if (!isset($_GET["f"])) {
-<<<<<<< HEAD
     $lines = file("words.txt");
-=======
-    $lines = file("_altres/paraules.txt");
->>>>>>> 6c1c54f61a6b5c6c9cf0122924d043bf3b0d833b
-    $fit = trim($lines[array_rand($lines)],"\n");
-    while (file_exists("_tmp/".$fit) && strlen($fit)<10) {
+    $fit = trim($lines[array_rand($lines)], "\n");
+    while (file_exists("_tmp/".$fit) && strlen($fit) < 10) {
         $fit .= rand(0,9);
     }
     if (strlen($fit) < 10) {
