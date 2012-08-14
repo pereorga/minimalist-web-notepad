@@ -3126,4 +3126,8 @@ zona
 zoom
 zoos
 zuau
+<<<<<<< HEAD:words.txt
 zulu
+=======
+zulu
+>>>>>>> 6c1c54f61a6b5c6c9cf0122924d043bf3b0d833b:_altres/paraules.txt

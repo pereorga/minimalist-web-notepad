@@ -13,7 +13,7 @@ function sanitize_file_name($filename) {
 
 
 if (!isset($_GET["f"])) {
-    $lines = file("_altres/paraules.txt");
+    $lines = file("words.txt");
     $fit = trim($lines[array_rand($lines)],"\n");
     while (file_exists("_tmp/".$fit) && strlen($fit)<10) {
         $fit .= rand(0,9);
