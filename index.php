@@ -13,7 +13,11 @@ function sanitize_file_name($filename) {
 
 
 if (!isset($_GET["f"])) {
+<<<<<<< HEAD
     $lines = file("words.txt");
+=======
+    $lines = file("_altres/paraules.txt");
+>>>>>>> 6c1c54f61a6b5c6c9cf0122924d043bf3b0d833b
     $fit = trim($lines[array_rand($lines)],"\n");
     while (file_exists("_tmp/".$fit) && strlen($fit)<10) {
         $fit .= rand(0,9);
@@ -40,6 +44,10 @@ if (isset($_POST["t"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Pere Orga" />
     <title><?php print $fit; ?></title>
+<<<<<<< HEAD
+    <link href="//raw.github.com/necolas/normalize.css/master/normalize.css" rel="stylesheet" media="all" />
+=======
+>>>>>>> 6c1c54f61a6b5c6c9cf0122924d043bf3b0d833b
     <link href="screen.css" rel="stylesheet" media="screen" />
     <link href="print.css" rel="stylesheet" media="print" />
     <link href="favicon.gif" rel="shortcut icon" />
@@ -53,8 +61,16 @@ if (isset($_POST["t"])) {
 ?></textarea>
     </div>
     <pre id="print"></pre>
+<<<<<<< HEAD
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//teddevito.com/demos/js/jquery.textarea.js"></script>
+    <script src="notes.js"></script>
+</body>
+</html>
+=======
     <script src="//code.jquery.com/jquery-1.3.2.min.js"></script>
     <script src="//teddevito.com/demos/js/jquery.textarea.js"></script>
     <script src="notes.js"></script>
 </body>
 </html>
+>>>>>>> 6c1c54f61a6b5c6c9cf0122924d043bf3b0d833b

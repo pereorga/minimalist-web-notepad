@@ -1,6 +1,10 @@
 body {
     background: #eee;
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 6c1c54f61a6b5c6c9cf0122924d043bf3b0d833b
 div {
     position: absolute;
     top: 20px;
@@ -8,14 +12,29 @@ div {
     bottom: 20px;
     left: 20px;
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 6c1c54f61a6b5c6c9cf0122924d043bf3b0d833b
 textarea {
     width: 100%;
     height: 100%;
     resize: none;
+<<<<<<< HEAD
+    overflow-y: auto;    
+=======
+>>>>>>> 6c1c54f61a6b5c6c9cf0122924d043bf3b0d833b
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+<<<<<<< HEAD
+
 pre {
     display: none;
 }
+=======
+pre {
+    display: none;
+}
+>>>>>>> 6c1c54f61a6b5c6c9cf0122924d043bf3b0d833b
