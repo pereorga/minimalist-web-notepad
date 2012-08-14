@@ -10,7 +10,7 @@ div {
     left: 20px;
 }
 
-textarea {
+#content {
     width: 100%;
     height: 100%;
     resize: none;
@@ -20,6 +20,6 @@ textarea {
     box-sizing: border-box;
 }
 
-pre {
+#print {
     display: none;
 }

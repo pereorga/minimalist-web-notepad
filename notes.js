@@ -1,21 +1,21 @@
 /* Pere Orga <pere@orga.cat>, 2012 */
 
 $(function() {
-    var $ta   = $("#ta");
-    var vtext = $ta.val();
+    var $textarea = $("#content");
+    var content = $textarea.val();
     
-    $ta.tabby();
-    $ta.focus();
-    $("#print").text(vtext);
+    $textarea.tabby();
+    $textarea.focus();
+    $("#print").text(content);
 
     setInterval(function() {
-        if (vtext !== $ta.val()) {
-            vtext = $ta.val();
+        if (content !== $textarea.val()) {
+            content = $textarea.val();
             $.ajax({
                 type: "POST",
-                data: "&t=" + encodeURIComponent(vtext)
+                data: "&t=" + encodeURIComponent(content)
             });
-            $("#print").text(vtext);
+            $("#print").text(content);
         }
     }, 1000);
 });

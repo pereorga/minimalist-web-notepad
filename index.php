@@ -47,7 +47,7 @@ if (isset($_POST["t"])) {
 </head>
 <body>
     <div>
-        <textarea id="ta" spellcheck="true"><?php 
+        <textarea id="content" spellcheck="true"><?php 
             if (file_exists($pfit)) {
                 print htmlspecialchars(file_get_contents($pfit));
             }
