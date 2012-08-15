@@ -40,7 +40,7 @@ if (isset($_POST["t"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Pere Orga" />
     <title><?php print $name; ?></title>
-    <link href="//raw.github.com/necolas/normalize.css/master/normalize.css" rel="stylesheet" media="all" />
+    <link href="normalize.css" rel="stylesheet" />
     <link href="screen.css" rel="stylesheet" media="screen" />
     <link href="print.css" rel="stylesheet" media="print" />
     <link href="favicon.gif" rel="shortcut icon" />
@@ -54,8 +54,8 @@ if (isset($_POST["t"])) {
 ?></textarea>
     </div>
     <pre id="print"></pre>
-    <script src="//code.jquery.com/jquery.js"></script>
-    <script src="//teddevito.com/demos/js/jquery.textarea.js"></script>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="jquery.textarea.js"></script>
     <script src="notes.js"></script>
 </body>
 </html>
