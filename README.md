@@ -2,7 +2,7 @@ Minimalist Web Notepad
 ======================
 
 This is a minimalist http://notepad.cc clone developed in PHP and
-jQuery. Normalize.css and Tabby jQuery plugin are optional.
+jQuery. It includes Normalize.css and Tabby jQuery plugin.
 
 See http://orga.cat/notes to see it in action.
 
