@@ -1,11 +1,14 @@
 <?php
 
+// Root URL of the website
 $URL = "http://orga.cat/notes";
+
+// Subfolder to output user content
 $FOLDER = "_tmp";
 
 
-//original function source code from wordpress
 function sanitize_file_name($filename) {
+    // Original function source code borrowed from wordpress
     $special_chars = array("?", "[", "]", "/", "\\", "=", "<", ">", ":", ";", ",", "'", "\"", "&", "$", "#", "*", "(", ")", "|", "~", "`", "!", "{", "}", ".");
     $filename = str_replace($special_chars, '', $filename);
     $filename = preg_replace('/[\s-]+/', '-', $filename);
@@ -15,6 +18,7 @@ function sanitize_file_name($filename) {
 
 
 if (!isset($_GET["f"])) {
+    // User has not specified a name, just get one and refresh
     $lines = file("words.txt");
     $name = trim($lines[array_rand($lines)], "\n");
     while (file_exists($FOLDER."/".$name) && strlen($name) < 10) {
@@ -30,6 +34,7 @@ $name = sanitize_file_name($_GET["f"]);
 $path = $FOLDER."/".$name;
 
 if (isset($_POST["t"])) {
+    // Update content of file
     file_put_contents($path, $_POST["t"]);
     die();
 }
@@ -40,7 +45,7 @@ if (isset($_POST["t"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Pere Orga" />
     <title><?php print $name; ?></title>
-    <link href="normalize.css" rel="stylesheet" />
+    <link href="lib/normalize.css" rel="stylesheet" />
     <link href="screen.css" rel="stylesheet" media="screen" />
     <link href="print.css" rel="stylesheet" media="print" />
     <link href="favicon.gif" rel="shortcut icon" />
@@ -55,7 +60,7 @@ if (isset($_POST["t"])) {
     </div>
     <pre id="print"></pre>
     <script src="//code.jquery.com/jquery.min.js"></script>
-    <script src="jquery.textarea.js"></script>
-    <script src="notes.js"></script>
+    <script src="lib/jquery.textarea.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
