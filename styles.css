@@ -1,10 +1,9 @@
 @media screen {
-
     body {
         background: #eee;
     }
 
-    div {
+    #div {
         position: absolute;
         top: 20px;
         right: 20px;
@@ -28,7 +27,7 @@
 }
 
 @media print {
-    div {
+    #div {
         display: none;
     }
 }

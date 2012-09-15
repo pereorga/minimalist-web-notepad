@@ -50,7 +50,7 @@ if (isset($_POST["t"])) {
     <link href="favicon.gif" rel="shortcut icon" />
 </head>
 <body>
-    <div>
+    <div id="div">
         <textarea id="content" spellcheck="true"><?php 
             if (file_exists($path)) {
                 print htmlspecialchars(file_get_contents($path));
