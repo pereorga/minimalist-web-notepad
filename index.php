@@ -46,8 +46,7 @@ if (isset($_POST["t"])) {
     <meta name="author" content="Pere Orga" />
     <title><?php print $name; ?></title>
     <link href="lib/normalize.css" rel="stylesheet" />
-    <link href="screen.css" rel="stylesheet" media="screen" />
-    <link href="print.css" rel="stylesheet" media="print" />
+    <link href="styles.css" rel="stylesheet" />
     <link href="favicon.gif" rel="shortcut icon" />
 </head>
 <body>
