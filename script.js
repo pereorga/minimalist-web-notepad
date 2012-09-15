@@ -2,17 +2,17 @@
 
 $(function() {
     var $textarea = $("#content");
-    
+    var content = $textarea.val();
+
     // Use jQuery Tabby Plugin to enable the tab key on textareas
     $textarea.tabby();
-    
+
     // Make the content available to print
     $("#print").text(content);
 
     $textarea.focus();
-    
+
     // If the content changes, update it every second
-    var content = $textarea.val();    
     setInterval(function() {
         if (content !== $textarea.val()) {
             content = $textarea.val();
