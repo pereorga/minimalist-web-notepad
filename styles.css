@@ -30,4 +30,8 @@
     #div {
         display: none;
     }
+
+    #print {
+        font-size: 10px;
+    }
 }
