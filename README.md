@@ -2,21 +2,15 @@ Minimalist Web Notepad
 ======================
 
 This is a minimalist http://notepad.cc clone developed in PHP and
-jQuery. It includes Normalize.css and Tabby jQuery plugin.
+jQuery.
 
 See http://orga.cat/notes to see it in action.
-
-
-Author
-------
-
-**Pere Orga**, <pere@orga.cat>
 
 
 Copyright and license
 ---------------------
 
-Copyright 2012 Pere Orga
+Copyright 2012 Pere Orga <pere@orga.cat>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this work except in compliance with the License.
