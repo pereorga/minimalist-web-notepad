@@ -1,14 +1,14 @@
 @media screen {
     body {
-        background: #eee;
+        background-image: url('bg.png');;
     }
 
     .container {
         position: absolute;
-        top: 20px;
-        right: 20px;
-        bottom: 20px;
-        left: 20px;
+        top: 50px;
+        right: 85px;
+        bottom: 75px;
+        left: 85px;
     }
 
     .content {
