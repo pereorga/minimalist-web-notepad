@@ -25,5 +25,4 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 
-favicon.ico: Copyright (C) 2012 Yusuke Kamiyamane <http://p.yusukekamiyamane.com/icons/search/fugue/>  
-Licensed under a Creative Commons Attribution 3.0 License (http://creativecommons.org/licenses/by/3.0/)
+favicon.ico: Copyright (C) 2012 https://sourceforge.net/projects/openiconlibrary/, Public Domain
