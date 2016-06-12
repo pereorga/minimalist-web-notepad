@@ -1,6 +1,6 @@
 @media screen {
     body {
-        background: #eee;
+        background: #EBEEF1;
     }
 
     .container {
@@ -20,6 +20,7 @@
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
+        border: 1px #ddd solid;
     }
 
     .print {
