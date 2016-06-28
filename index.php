@@ -1,10 +1,10 @@
 <?php
 
-// Root URL of the website.
-$URL = "http://orga.cat/notes";
+// Base URL of the website, without trailing space.
+$BASE_URL = 'https://orga.cat/notes';
 
-// Subfolder to output user content.
-$FOLDER = "_tmp";
+// Directory to save user content.
+$DATA_DIRECTORY = '_tmp';
 
 
 function sanitize_file_name($filename) {
@@ -17,25 +17,25 @@ function sanitize_file_name($filename) {
 }
 
 
-if (!isset($_GET["f"])) {
+if (empty($_GET['f'])) {
     // User has not specified a name, get one and refresh.
-    $lines = file("words.txt");
+    $lines = file('words.txt');
     $name = trim($lines[array_rand($lines)], "\n");
-    while (file_exists($FOLDER."/".$name) && strlen($name) < 10) {
-        $name .= rand(0,9);
+    while (file_exists($DATA_DIRECTORY . '/' . $name) && strlen($name) < 10) {
+        $name .= rand(0, 9);
     }
     if (strlen($name) < 10) {
-        header("Location: ".$URL."/".$name);
+        header('Location: ' . $BASE_URL . '/' . $name);
     }
     die();
 }
 
-$name = sanitize_file_name($_GET["f"]);
-$path = $FOLDER."/".$name;
+$name = sanitize_file_name($_GET['f']);
+$path = $DATA_DIRECTORY . '/' . $name;
 
-if (isset($_POST["t"])) {
+if (isset($_POST['t'])) {
     // Update content of file
-    file_put_contents($path, $_POST["t"]);
+    file_put_contents($path, $_POST['t']);
     die();
 }
 ?><!DOCTYPE html>
