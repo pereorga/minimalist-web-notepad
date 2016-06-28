@@ -16,17 +16,20 @@ function sanitize_file_name($filename) {
     return $filename;
 }
 
+function generateRandomString($length = 5) {
+    // Borrowed from http://stackoverflow.com/a/4356295/1391963
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
 
 if (empty($_GET['f'])) {
     // User has not specified a name, get one and refresh.
-    $lines = file('words.txt');
-    $name = trim($lines[array_rand($lines)], "\n");
-    while (file_exists($DATA_DIRECTORY . '/' . $name) && strlen($name) < 10) {
-        $name .= rand(0, 9);
-    }
-    if (strlen($name) < 10) {
-        header('Location: ' . $BASE_URL . '/' . $name);
-    }
+    header('Location: ' . $BASE_URL . '/' . generateRandomString());
     die();
 }
 
