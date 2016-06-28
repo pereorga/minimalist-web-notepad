@@ -1,6 +1,6 @@
 <?php
 
-// Base URL of the website, without trailing space.
+// Base URL of the website, without trailing slash.
 $BASE_URL = 'https://orga.cat/notes';
 
 // Directory to save user content.
