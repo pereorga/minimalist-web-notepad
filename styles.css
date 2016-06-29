@@ -21,6 +21,8 @@
         -moz-box-sizing: border-box;
         box-sizing: border-box;
         border: 1px #ddd solid;
+        padding: 1em;
+        outline: none;
     }
 
     .print {
