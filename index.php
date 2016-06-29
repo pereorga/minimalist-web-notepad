@@ -52,9 +52,9 @@ if (isset($_POST['t'])) {
 </head>
 <body>
     <div class="container">
-        <textarea class="content" spellcheck="true"><?php 
+        <textarea class="content" spellcheck="true"><?php
             if (file_exists($path)) {
-                print htmlspecialchars(file_get_contents($path));
+                print htmlspecialchars(file_get_contents($path), ENT_QUOTES, 'UTF-8');
             }
 ?></textarea>
     </div>
