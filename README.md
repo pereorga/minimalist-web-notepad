@@ -1,8 +1,7 @@
 Minimalist Web Notepad
 ======================
 
-This is a minimalist http://notepad.cc clone developed in PHP and
-jQuery.
+This is a minimalist http://notepad.cc clone developed in PHP.
 
 For a demo, see http://orga.cat/notes.
 
