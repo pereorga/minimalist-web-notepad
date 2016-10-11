@@ -11,6 +11,8 @@ Installation
 
 Enable mod_rewrite and setup `.htaccess` files in your site configuration. See [How To Set Up mod_rewrite for Apache](https://www.digitalocean.com/community/tutorials/how-to-set-up-mod_rewrite-for-apache-on-ubuntu-14-04).
 
+At the top of `index.php` file, change `$BASE_URL` variable to point to your site.
+
 Make sure the web server is allowed to write to the `_tmp` directory.
 
 
