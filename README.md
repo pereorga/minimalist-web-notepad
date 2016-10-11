@@ -9,7 +9,7 @@ For a demo, see http://orga.cat/notes.
 Installation
 ------------
 
-Enable mod_rewrite and setup `.htaccess` files in your site configuration. See [How To Set Up mod_rewrite for Apache](https://www.digitalocean.com/community/tutorials/how-to-set-up-mod_rewrite-for-apache-on-ubuntu-14-04).
+Enable mod_rewrite and set up `.htaccess` files in your site configuration. See [How To Set Up mod_rewrite for Apache](https://www.digitalocean.com/community/tutorials/how-to-set-up-mod_rewrite-for-apache-on-ubuntu-14-04).
 
 At the top of `index.php` file, change `$BASE_URL` variable to point to your site.
 
