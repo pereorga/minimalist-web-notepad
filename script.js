@@ -1,24 +1,16 @@
-$(function() {
-    var $textarea = $(".content");
-    var content = $textarea.val();
 
-    // Use jQuery Tabby Plugin to enable the tab key on textareas.
-    $textarea.tabby();
+var textarea = document.getElementById('content');
+var content = textarea.value;
 
-    // Make content available to print.
-    $(".print").text(content);
+textarea.focus();
 
-    $textarea.focus();
+setInterval(function() {
+    if (content !== textarea.value) {
 
-    // If content changes, update it.
-    setInterval(function() {
-        if (content !== $textarea.val()) {
-            content = $textarea.val();
-            $.ajax({
-                type: "POST",
-                data: "&t=" + encodeURIComponent(content)
-            });
-            $(".print").text(content);
-        }
-    }, 1000);
-});
+        content = textarea.value;
+        var request = new XMLHttpRequest();
+        request.open('POST', window.location.href, true);
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        request.send("t=" + encodeURIComponent(content));
+    }
+}, 1000);
