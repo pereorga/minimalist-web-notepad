@@ -21,7 +21,7 @@ function generateRandomString($length = 5) {
     return $randomString;
 }
 
-if (empty($_GET['f'])) {
+if (empty($_GET['f']) || !sanitizeString($_GET['f'])) {
     // User has not specified a name, get one and refresh.
     header('Location: ' . $base_url . '/' . generateRandomString());
     die();
