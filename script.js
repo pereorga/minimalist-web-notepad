@@ -1,4 +1,3 @@
-
 var textarea = document.getElementById('content');
 var content = textarea.value;
 
