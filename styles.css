@@ -1,28 +1,28 @@
 body {
-  margin: 0;
-  background: #ebeef1;
+    margin: 0;
+    background: #ebeef1;
 }
 
 #content {
-  font-size: 100%;
-  margin: 0;
-  padding: 20px;
-  overflow-y: auto;
-  resize: none;
-  width: 100%;
-  height: 100%;
-  min-height: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: 1px #ddd solid;
-  outline: none;
+    font-size: 100%;
+    margin: 0;
+    padding: 20px;
+    overflow-y: auto;
+    resize: none;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px #ddd solid;
+    outline: none;
 }
 
 .container {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  bottom: 20px;
-  left: 20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
 }
