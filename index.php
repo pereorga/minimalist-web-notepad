@@ -53,6 +53,7 @@ if (isset($_POST['t'])) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?php print $name; ?></title>
+    <link rel="shortcut icon" href="<?php print $base_url; ?>/favicon.ico" />
     <link href="styles.css" rel="stylesheet" />
 </head>
 <body>
