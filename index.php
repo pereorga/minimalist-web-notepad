@@ -3,16 +3,26 @@
 // Base URL of the website, without trailing slash.
 $base_url = 'https://orga.cat/notes';
 
-// Directory to save user content.
+// Directory to save user documents.
 $data_directory = '_tmp';
 
-
+/**
+ * Sanitizes a string to include only alphanumeric characters.
+ * @param  string $string The string to sanitize
+ * @return string         The sanitized string
+ */
 function sanitizeString($string) {
     return preg_replace("/[^a-zA-Z0-9]+/", "", $string);
 }
 
+/**
+ * Generates a random string.
+ * @param  integer $length The length of the string
+ * @return string          The new string
+ *
+ * Borrowed from http://stackoverflow.com/a/4356295/1391963
+ */
 function generateRandomString($length = 5) {
-    // Borrowed from http://stackoverflow.com/a/4356295/1391963
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $randomString = '';
     for ($i = 0; $i < $length; $i++) {
@@ -32,7 +42,8 @@ $name = sanitizeString($_GET['f']);
 $path = $data_directory . '/' . $name;
 
 if (isset($_POST['t'])) {
-    // Update content of file
+
+    // Update file.
     file_put_contents($path, $_POST['t']);
     die();
 }
