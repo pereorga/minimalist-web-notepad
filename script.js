@@ -1,3 +1,5 @@
+/*! Minimalist Web Notepad | https://github.com/pereorga/minimalist-web-notepad */
+
 function uploadContent() {
     if (content !== textarea.value) {
         content = textarea.value;
