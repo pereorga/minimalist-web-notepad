@@ -22,7 +22,7 @@ function sanitizeString($string) {
  * @param  integer $length the length of the string
  * @return string          the new string
  *
- * Initiall based on http://stackoverflow.com/a/4356295/1391963
+ * Initially based on http://stackoverflow.com/a/4356295/1391963
  */
 function generateRandomString($length = 5) {
     // Do not generate ambiguous characters. See http://ux.stackexchange.com/a/53345/25513
