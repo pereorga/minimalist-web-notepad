@@ -8,8 +8,9 @@ $data_directory = '_tmp';
 
 /**
  * Sanitizes a string to include only alphanumeric characters.
- * @param  string $string The string to sanitize
- * @return string         The sanitized string
+ *
+ * @param  string $string the string to sanitize
+ * @return string         the sanitized string
  */
 function sanitizeString($string) {
     return preg_replace("/[^a-zA-Z0-9]+/", "", $string);
@@ -17,13 +18,15 @@ function sanitizeString($string) {
 
 /**
  * Generates a random string.
- * @param  integer $length The length of the string
- * @return string          The new string
  *
- * Borrowed from http://stackoverflow.com/a/4356295/1391963
+ * @param  integer $length the length of the string
+ * @return string          the new string
+ *
+ * Initiall based on http://stackoverflow.com/a/4356295/1391963
  */
 function generateRandomString($length = 5) {
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    // Do not generate ambiguous characters. See http://ux.stackexchange.com/a/53345/25513
+    $characters = '23456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ';
     $randomString = '';
     for ($i = 0; $i < $length; $i++) {
         $randomString .= $characters[rand(0, strlen($characters) - 1)];
