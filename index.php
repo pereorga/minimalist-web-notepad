@@ -63,7 +63,7 @@ if (isset($_POST['t'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?php print $name; ?></title>
     <link rel="shortcut icon" href="<?php print $base_url; ?>/favicon.ico" />
-    <link href="styles.css" rel="stylesheet" />
+    <link href="<?php print $base_url; ?>/styles.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container">
@@ -73,6 +73,6 @@ if (isset($_POST['t'])) {
             }
 ?></textarea>
     </div>
-    <script src="script.js"></script>
+    <script src="<?php print $base_url; ?>/script.js"></script>
 </body>
 </html>
