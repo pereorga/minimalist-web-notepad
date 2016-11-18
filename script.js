@@ -16,6 +16,10 @@ function uploadContent() {
             setTimeout(uploadContent, 1000);
         }
         request.send("t=" + encodeURIComponent(temp));
+
+        // Make the content available to print.
+        printable.removeChild(printable.firstChild);
+        printable.appendChild(document.createTextNode(temp));
     }
     else {
         setTimeout(uploadContent, 1000);
@@ -23,6 +27,9 @@ function uploadContent() {
 }
 
 var textarea = document.getElementById('content');
+var printable = document.getElementById('printable');
 var content = textarea.value;
+
+printable.appendChild(document.createTextNode(content));
 textarea.focus();
 uploadContent();

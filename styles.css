@@ -28,3 +28,17 @@ body {
     bottom: 20px;
     left: 20px;
 }
+
+#printable {
+    display: none;
+}
+
+@media print {
+    #content {
+        display: none;
+    }
+
+    #printable {
+        display: block;
+    }
+}
