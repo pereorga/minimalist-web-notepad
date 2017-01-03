@@ -13,7 +13,7 @@ $data_directory = '_tmp';
  * @return string         the sanitized string
  */
 function sanitizeString($string) {
-    return preg_replace("/[^a-zA-Z0-9]+/", "", $string);
+    return preg_replace('/[^a-zA-Z0-9]+/', '', $string);
 }
 
 /**
@@ -36,9 +36,9 @@ function generateRandomString($length = 5) {
 
 
 // Disable caching.
-header("Cache-Control: no-cache, no-store, must-revalidate");
-header("Pragma: no-cache");
-header("Expires: 0");
+header('Cache-Control: no-cache, no-store, must-revalidate');
+header('Pragma: no-cache');
+header('Expires: 0');
 
 if (empty($_GET['f']) || sanitizeString($_GET['f']) !== $_GET['f']) {
 
