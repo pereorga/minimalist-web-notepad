@@ -3,7 +3,7 @@ Minimalist Web Notepad
 
 This is an open source clone of notepad.cc, which is now defunct.
 
-For a demo, see https://orga.cat/notes.
+For a demo, see https://orga.cat/notes or https://orga.cat/notes/whatever.
 
 
 Installation
@@ -16,8 +16,8 @@ Make sure the web server is allowed to write to the `_tmp` directory.
 
 ### On Apache
 
-Enable mod_rewrite and set up `.htaccess` files in your site configuration. See
-[How To Set Up mod_rewrite for Apache](https://www.digitalocean.com/community/tutorials/how-to-set-up-mod_rewrite-for-apache-on-ubuntu-14-04).
+You may need to enable mod_rewrite and set up `.htaccess` files in your site configuration.
+See [How To Set Up mod_rewrite for Apache](https://www.digitalocean.com/community/tutorials/how-to-set-up-mod_rewrite-for-apache-on-ubuntu-14-04).
 
 ### On Nginx
 
