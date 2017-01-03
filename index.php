@@ -48,7 +48,7 @@ if (empty($_GET['f']) || sanitizeString($_GET['f']) !== $_GET['f']) {
 }
 
 $name = sanitizeString($_GET['f']);
-$path = $data_directory . '/' . $name;
+$path = $data_directory . DIRECTORY_SEPARATOR . $name;
 
 if (isset($_POST['t'])) {
 
