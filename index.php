@@ -57,9 +57,10 @@ if (isset($_POST['t'])) {
     die();
 }
 
-if (preg_match('/^curl\//', $_SERVER ['HTTP_USER_AGENT'])) {
-    // Output raw file iff client is curl.
-    echo file_get_contents($path);
+if (strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0) {
+
+    // Output raw file if client is curl.
+    print file_get_contents($path);
     die();
 }
 ?><!DOCTYPE html>
