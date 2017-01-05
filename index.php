@@ -2,6 +2,10 @@
 
 // Base URL of the website, without trailing slash.
 $base_url = 'https://orga.cat/notes';
+// or pick up the current parent directory so you do not have to change index.php when installing on a web server
+// from http://stackoverflow.com/questions/15110355/how-to-safely-get-full-url-of-parent-directory-of-current-php-page
+// if you want to use a specified URL then comment out the line below
+$base_url  = dirname($_SERVER['PHP_SELF']);
 
 // Directory to save user documents.
 $data_directory = '_tmp';
