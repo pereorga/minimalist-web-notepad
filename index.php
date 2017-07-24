@@ -40,6 +40,13 @@ header('Cache-Control: no-cache, no-store, must-revalidate');
 header('Pragma: no-cache');
 header('Expires: 0');
 
+if(isset($_GET['delete'])) {
+        //User will delete file
+        unlink($data_directory . DIRECTORY_SEPARATOR . $_GET['delete']);
+        header('Location: ' . $base_url);
+        die();
+}
+
 if (empty($_GET['f']) || sanitizeString($_GET['f']) !== $_GET['f']) {
 
     // User has not specified a valid name, generate one.
@@ -75,6 +82,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0) {
 </head>
 <body>
     <div class="container">
+        <span class="delete"><a href="./?delete=<?php echo $name; ?>"><img src="trash.svg" alt="trash"/></a></span>
         <textarea id="content"><?php
             if (file_exists($path)) {
                 print htmlspecialchars(file_get_contents($path), ENT_QUOTES, 'UTF-8');
