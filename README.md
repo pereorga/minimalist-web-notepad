@@ -23,17 +23,17 @@ See [How To Set Up mod_rewrite for Apache](https://www.digitalocean.com/communit
 
 To enable URL rewriting, put something like this in your configuration file:
 
-If notepad is in the root dir:
-
+If notepad is in the root directory:
 ```
 location / {
         rewrite ^/([a-zA-Z0-9]+)$ /index.php?f=$1;
 }
 ```
-If notepad is in the sub dir:
+
+If notepad is in a subdirectory:
 ```
-location /notes/ {
-        rewrite ^/([a-zA-Z0-9]+)$ /index.php?f=$1;
+location ~* ^/notes/(\w+)$ {
+        try_files $uri /notes/index.php?f=$1;
 }
 ```
 
