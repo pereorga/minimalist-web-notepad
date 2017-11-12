@@ -3,7 +3,7 @@ Minimalist Web Notepad
 
 This is an open source clone of notepad.cc, which is now defunct.
 
-For a demo, see https://notepad.blue or https://notepad.blue/whatever.
+See demo at https://notes.cat or https://notes.cat/whatever.
 
 
 Installation
