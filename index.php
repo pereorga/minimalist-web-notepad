@@ -75,7 +75,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0) {
 </head>
 <body>
     <div class="container">
-        <textarea id="content" placeholder="Remember, be nice!"><?php
+        <textarea id="content"><?php
             if (file_exists($path)) {
                 print htmlspecialchars(file_get_contents($path), ENT_QUOTES, 'UTF-8');
             }
