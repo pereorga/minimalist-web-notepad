@@ -1,7 +1,7 @@
 <?php
 
 // Base URL of the website, without trailing slash.
-$base_url = 'https://notes.cat';
+$base_url = 'https://notes.orga.cat';
 
 // Directory to save user documents.
 $data_directory = '_tmp';
