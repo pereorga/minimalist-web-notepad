@@ -60,7 +60,9 @@ if (isset($_POST['t'])) {
 if (strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0) {
 
     // Output raw file if client is curl.
-    print file_get_contents($path);
+    if (is_file($path)) {
+        print file_get_contents($path);
+    }
     die();
 }
 ?><!DOCTYPE html>
@@ -76,7 +78,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0) {
 <body>
     <div class="container">
         <textarea id="content"><?php
-            if (file_exists($path)) {
+            if (is_file($path)) {
                 print htmlspecialchars(file_get_contents($path), ENT_QUOTES, 'UTF-8');
             }
 ?></textarea>
