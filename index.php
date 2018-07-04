@@ -24,13 +24,13 @@ header('Expires: 0');
 if (empty($_GET['f']) || sanitizeString($_GET['f']) !== $_GET['f']) {
 
     // User has not specified a valid name, generate one.
-    $default_name_length = 5;
+    $name_length = 5;
 
     // Initially based on http://stackoverflow.com/a/4356295/1391963
     // Do not generate ambiguous characters. See http://ux.stackexchange.com/a/53345/25513
     $characters = '23456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ';
     $randomString = '';
-    for ($i = 0; $i < $default_name_length; ++$i) {
+    for ($i = 0; $i < $name_length; ++$i) {
         $randomString .= $characters[mt_rand(0, strlen($characters) - 1)];
     }
 
