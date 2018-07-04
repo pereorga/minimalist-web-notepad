@@ -82,7 +82,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0) {
                 print htmlspecialchars(file_get_contents($path), ENT_QUOTES, 'UTF-8');
             }
         ?></textarea>
-    <pre id="printable"></pre>
+        <pre id="printable"></pre>
     </div>
     <script src="<?php print $base_url; ?>/script.js"></script>
 </body>
