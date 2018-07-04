@@ -52,13 +52,15 @@ $path = $data_directory . DIRECTORY_SEPARATOR . $name;
 
 if (isset($_POST['t'])) {
 
-    // check whether we got empty input or not, empty() won't work in this case.
+    // If input is not empty (using empty() would not work for some falsy values)
     if (strlen($_POST['t'])) {
-        // Update file only if it have content.
+
+        // Update file.
         file_put_contents($path, $_POST['t']);
     }
     else {
-        // Not to leave a 0 byte file there, just remove it.
+
+        // There is no need to keep an empty file, remove it.
         unlink($path);
     }
     die();
