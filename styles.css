@@ -29,6 +29,13 @@ body {
     left: 20px;
 }
 
+.delete img {
+    position: absolute;
+    height: 25px;
+    top: 5px;
+    right: 5px;
+}
+
 #printable {
     display: none;
 }
