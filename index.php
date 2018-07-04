@@ -26,10 +26,10 @@ function sanitizeString($string) {
  */
 function generateRandomString($length = 5) {
     // Do not generate ambiguous characters. See http://ux.stackexchange.com/a/53345/25513
-    $characters = '23456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ';
+    $size = strlen( $characters = '23456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ' ) - 1;
     $randomString = '';
-    for ($i = 0; $i < $length; $i++) {
-        $randomString .= $characters[rand(0, strlen($characters) - 1)];
+    for ($i = 0; $i < $length; ++$i) {
+        $randomString .= $characters[mt_rand(0, $size)];
     }
     return $randomString;
 }
@@ -52,12 +52,14 @@ $path = $data_directory . DIRECTORY_SEPARATOR . $name;
 
 if (isset($_POST['t'])) {
 
+    // Avoid empty file leaving in system, empty() won't work in this case.
+    if (!strlen($_POST['t'])) unlink($path);
     // Update file.
-    file_put_contents($path, $_POST['t']);
+    else file_put_contents($path, $_POST['t']);
     die();
 }
 
-if (strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0) {
+if (strpos($_SERVER['HTTP_USER_AGENT'], 'curl/') === 0) {
 
     // Output raw file if client is curl.
     print file_get_contents($path);
