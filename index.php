@@ -3,27 +3,27 @@
 // Base URL of the website, without trailing slash.
 $base_url = 'https://notes.orga.cat';
 
-// Directory to save user documents.
+// Directory to save notes.
 $data_directory = '_tmp';
-
-/**
- * Sanitizes a string to include only alphanumeric characters.
- *
- * @param  string $string the string to sanitize
- * @return string         the sanitized string
- */
-function sanitizeString($string) {
-    return preg_replace('/[^a-zA-Z0-9]+/', '', $string);
-}
 
 // Disable caching.
 header('Cache-Control: no-cache, no-store, must-revalidate');
 header('Pragma: no-cache');
 header('Expires: 0');
 
-if (empty($_GET['f']) || sanitizeString($_GET['f']) !== $_GET['f']) {
+$name = '';
+if (isset($_GET['f'])) {
 
-    // User has not specified a valid name, generate one.
+    // If provided file name has non-alphanumeric (ASCII) characters, discard it.
+    $name = preg_replace('/[^a-zA-Z0-9]+/', '', $_GET['f']);
+    if ($name !== $_GET['f']) {
+        $name = '';
+    }
+}
+
+if (!strlen($name)) {
+
+    // Generate a random name.
     $name_length = 5;
 
     // Initially based on http://stackoverflow.com/a/4356295/1391963
@@ -34,12 +34,11 @@ if (empty($_GET['f']) || sanitizeString($_GET['f']) !== $_GET['f']) {
         $random_string .= $characters[mt_rand(0, strlen($characters) - 1)];
     }
 
-    // Redirect user to a new note.
+    // Redirect user to the new note.
     header("Location: $base_url/$random_string");
     die();
 }
 
-$name = sanitizeString($_GET['f']);
 $path = $data_directory . DIRECTORY_SEPARATOR . $name;
 
 if (isset($_POST['t'])) {
