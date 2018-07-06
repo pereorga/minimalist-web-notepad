@@ -6,8 +6,8 @@ RewriteRule ^([a-zA-Z0-9]+)$ index.php?f=$1
     Header set X-Robots-Tag: "noindex, nofollow"
 </IfModule>
 
-# Uncomment the below lines to enable basic authentication
-# Please note that it is secure only over https
+# Uncomment the lines below to enable basic authentication.
+# Please note that it is secure only over https.
 # See https://httpd.apache.org/docs/2.4/programs/htpasswd.html for generating your .htpasswd
 
 # AuthType basic
