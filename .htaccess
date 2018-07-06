@@ -1,6 +1,16 @@
+Options -Indexes
 RewriteEngine On
 RewriteRule ^([a-zA-Z0-9]+)$ index.php?f=$1
 
 <IfModule mod_headers.c>
     Header set X-Robots-Tag: "noindex, nofollow"
 </IfModule>
+
+# Uncomment the below lines to enable basic authentication
+# Please note that it is secure only over https
+# See https://httpd.apache.org/docs/2.4/programs/htpasswd.html for generating your .htpasswd
+
+# AuthType basic
+# AuthName "website.name"
+# AuthUserFile "/home/user/update-path-to.htpasswd"
+# Require valid-user
