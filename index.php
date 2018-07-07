@@ -11,9 +11,10 @@ header('Cache-Control: no-cache, no-store, must-revalidate');
 header('Pragma: no-cache');
 header('Expires: 0');
 
+// If provided file name has non-alphanumeric (ASCII) characters, discard it.
 if (!isset($_GET['f']) || !preg_match('/^[a-z0-9]+$/i', $_GET['f'])) {
 
-    // User has not specified a valid name, generate one.
+    // Generate a random name.
     $name_length = 5;
 
     // Initially based on http://stackoverflow.com/a/4356295/1391963
@@ -26,7 +27,7 @@ if (!isset($_GET['f']) || !preg_match('/^[a-z0-9]+$/i', $_GET['f'])) {
 
     // Redirect user to the new note.
     header("Location: $base_url/$random_string");
-    die();
+    die;
 }
 
 $name = $_GET['f'];
@@ -45,7 +46,7 @@ if (isset($_POST['t'])) {
         // There is no need to keep an empty file, remove it.
         unlink($path);
     }
-    die();
+    die;
 }
 
 if (strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0) {
@@ -54,7 +55,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0) {
     if (is_file($path)) {
         print file_get_contents($path);
     }
-    die();
+    die;
 }
 ?><!DOCTYPE html>
 <html>
