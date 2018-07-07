@@ -3,7 +3,7 @@
 // Base URL of the website, without trailing slash.
 $base_url = 'https://notes.orga.cat';
 
-// Directory to save user documents.
+// Directory to save notes.
 $data_directory = '_tmp';
 
 // Disable caching.
@@ -24,7 +24,7 @@ if (!isset($_GET['f']) || !preg_match('/^[a-z0-9]+$/i', $_GET['f'])) {
         $random_string .= $characters[mt_rand(0, strlen($characters) - 1)];
     }
 
-    // Redirect user to a new note.
+    // Redirect user to the new note.
     header("Location: $base_url/$random_string");
     die();
 }
