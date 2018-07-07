@@ -27,7 +27,7 @@ if (!isset($_GET['f']) || !preg_match('/^[a-z0-9]+$/i', $_GET['f'])) {
 
     // Redirect user to the new note.
     header("Location: $base_url/$random_string");
-    die();
+    die;
 }
 
 $name = $_GET['f'];
@@ -46,7 +46,7 @@ if (isset($_POST['t'])) {
         // There is no need to keep an empty file, remove it.
         unlink($path);
     }
-    die();
+    die;
 }
 
 if (strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0) {
@@ -55,7 +55,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0) {
     if (is_file($path)) {
         print file_get_contents($path);
     }
-    die();
+    die;
 }
 ?><!DOCTYPE html>
 <html>
