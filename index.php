@@ -69,12 +69,12 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0) {
 ?><!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content="Minimalist Web Notepad (https://github.com/pereorga/minimalist-web-notepad)" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Minimalist Web Notepad (https://github.com/pereorga/minimalist-web-notepad)">
     <title><?php print $name; ?></title>
-    <link rel="shortcut icon" href="<?php print $base_url; ?>/favicon.ico" />
-    <link href="<?php print $base_url; ?>/styles.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="<?php print $base_url; ?>/favicon.ico">
+    <link rel="stylesheet" href="<?php print $base_url; ?>/styles.css">
 </head>
 <body>
     <div class="container">
