@@ -11,9 +11,10 @@ header('Cache-Control: no-cache, no-store, must-revalidate');
 header('Pragma: no-cache');
 header('Expires: 0');
 
+// If provided file name has non-alphanumeric (ASCII) characters, discard it.
 if (!isset($_GET['f']) || !preg_match('/^[a-z0-9]+$/i', $_GET['f'])) {
 
-    // User has not specified a valid name, generate one.
+    // Generate a random name.
     $name_length = 5;
 
     // Initially based on http://stackoverflow.com/a/4356295/1391963
