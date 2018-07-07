@@ -12,12 +12,12 @@ header('Pragma: no-cache');
 header('Expires: 0');
 
 // Restrict file name to alphanumeric (ASCII) characters.
-$name = '';
-if (isset($_GET['f']) && $_GET['f'] === preg_replace('/[^a-zA-Z0-9]+/', '', $_GET['f'])) {
-    $name = $_GET['f'];
-}
+if (isset($_GET['f']) && preg_match('/^[a-zA-Z0-9]+$/', $_GET['f'])) {
 
-if (!strlen($name)) {
+    $name = $_GET['f'];
+    $path = $data_directory . DIRECTORY_SEPARATOR . $name;
+
+} else {
 
     // Generate a random name.
     $name_length = 5;
@@ -34,8 +34,6 @@ if (!strlen($name)) {
     header("Location: $base_url/$random_string");
     die();
 }
-
-$path = $data_directory . DIRECTORY_SEPARATOR . $name;
 
 if (isset($_POST['t'])) {
 
