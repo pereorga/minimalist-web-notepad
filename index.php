@@ -30,7 +30,7 @@ if (!isset($_GET['f']) || !preg_match('/^[a-z0-9]+$/i', $_GET['f'])) {
 }
 
 $name = $_GET['f'];
-$path = $data_directory . DIRECTORY_SEPARATOR . $name;
+$path = "$data_directory/$name";
 
 if (isset($_POST['t'])) {
 
