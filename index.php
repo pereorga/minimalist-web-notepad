@@ -11,12 +11,7 @@ header('Cache-Control: no-cache, no-store, must-revalidate');
 header('Pragma: no-cache');
 header('Expires: 0');
 
-if (isset($_GET['f']) && preg_match('/^[a-z0-9]+$/i', $_GET['f'])) {
-
-    $name = $_GET['f'];
-    $path = $data_directory . DIRECTORY_SEPARATOR . $name;
-
-} else {
+if (!isset($_GET['f']) || !preg_match('/^[a-z0-9]+$/i', $_GET['f'])) {
 
     // User has not specified a valid name, generate one.
     $name_length = 5;
@@ -33,6 +28,9 @@ if (isset($_GET['f']) && preg_match('/^[a-z0-9]+$/i', $_GET['f'])) {
     header("Location: $base_url/$random_string");
     die();
 }
+
+$name = $_GET['f'];
+$path = $data_directory . DIRECTORY_SEPARATOR . $name;
 
 if (isset($_POST['t'])) {
 
