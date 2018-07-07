@@ -6,22 +6,17 @@ $base_url = 'https://notes.orga.cat';
 // Directory to save user documents.
 $data_directory = '_tmp';
 
-/**
- * Sanitizes a string to include only alphanumeric characters.
- *
- * @param  string $string the string to sanitize
- * @return string         the sanitized string
- */
-function sanitizeString($string) {
-    return preg_replace('/[^a-zA-Z0-9]+/', '', $string);
-}
-
 // Disable caching.
 header('Cache-Control: no-cache, no-store, must-revalidate');
 header('Pragma: no-cache');
 header('Expires: 0');
 
-if (empty($_GET['f']) || sanitizeString($_GET['f']) !== $_GET['f']) {
+if (isset($_GET['f']) && preg_match('/^[a-z0-9]+$/i', $_GET['f'])) {
+
+    $name = $_GET['f'];
+    $path = $data_directory . DIRECTORY_SEPARATOR . $name;
+
+} else {
 
     // User has not specified a valid name, generate one.
     $name_length = 5;
@@ -38,9 +33,6 @@ if (empty($_GET['f']) || sanitizeString($_GET['f']) !== $_GET['f']) {
     header("Location: $base_url/$random_string");
     die();
 }
-
-$name = sanitizeString($_GET['f']);
-$path = $data_directory . DIRECTORY_SEPARATOR . $name;
 
 if (isset($_POST['t'])) {
 
