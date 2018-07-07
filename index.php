@@ -3,53 +3,49 @@
 // Base URL of the website, without trailing slash.
 $base_url = 'https://notes.orga.cat';
 
-// Directory to save user documents.
+// Directory to save notes.
 $data_directory = '_tmp';
-
-/**
- * Sanitizes a string to include only alphanumeric characters.
- *
- * @param  string $string the string to sanitize
- * @return string         the sanitized string
- */
-function sanitizeString($string) {
-    return preg_replace('/[^a-zA-Z0-9]+/', '', $string);
-}
 
 // Disable caching.
 header('Cache-Control: no-cache, no-store, must-revalidate');
 header('Pragma: no-cache');
 header('Expires: 0');
 
-// User has not specified a valid name, generate one.
-if (empty($_GET['f']) || sanitizeString($_GET['f']) !== $_GET['f']) {
+// Restrict file name to alphanumeric (ASCII) characters.
+if (isset($_GET['f']) && preg_match('/^[a-zA-Z0-9]+$/', $_GET['f'])) {
 
-    // Do not generate ambiguous characters. See http://ux.stackexchange.com/a/53345/25513
-    $characters = '23456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ';
-    $randomString = '';
+    $name = $_GET['f'];
+    $path = $data_directory . DIRECTORY_SEPARATOR . $name;
+
+} else {
+
+    // Generate a random name.
+    $name_length = 5;
 
     // Initially based on http://stackoverflow.com/a/4356295/1391963
-    for ($i = 0; $i < 5; ++$i) {
-        $randomString .= $characters[mt_rand(0, strlen($characters) - 1)];
+    // Do not generate ambiguous characters. See http://ux.stackexchange.com/a/53345/25513
+    $characters = '23456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ';
+    $random_string = '';
+    for ($i = 0; $i < $name_length; ++$i) {
+        $random_string .= $characters[mt_rand(0, strlen($characters) - 1)];
     }
 
-    // Redirect user to a new note
-    header("Location: $base_url/$randomString");
+    // Redirect user to the new note.
+    header("Location: $base_url/$random_string");
     die();
 }
 
-$name = sanitizeString($_GET['f']);
-$path = $data_directory . DIRECTORY_SEPARATOR . $name;
-
 if (isset($_POST['t'])) {
 
-    // check whether we got empty input or not, empty() won't work in this case.
+    // If input is not empty (using empty() would not work for some falsy values)
     if (strlen($_POST['t'])) {
-        // Update file only if it have content.
+
+        // Update file.
         file_put_contents($path, $_POST['t']);
     }
     else {
-        // Not to leave a 0 byte file there, just remove it.
+
+        // There is no need to keep an empty file, remove it.
         unlink($path);
     }
     die();
@@ -79,8 +75,8 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0) {
             if (is_file($path)) {
                 print htmlspecialchars(file_get_contents($path), ENT_QUOTES, 'UTF-8');
             }
-?></textarea>
-    <pre id="printable"></pre>
+        ?></textarea>
+        <pre id="printable"></pre>
     </div>
     <script src="<?php print $base_url; ?>/script.js"></script>
 </body>
