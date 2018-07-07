@@ -11,14 +11,10 @@ header('Cache-Control: no-cache, no-store, must-revalidate');
 header('Pragma: no-cache');
 header('Expires: 0');
 
+// Restrict file name to alphanumeric (ASCII) characters.
 $name = '';
-if (isset($_GET['f'])) {
-
-    // If provided file name has non-alphanumeric (ASCII) characters, discard it.
-    $name = preg_replace('/[^a-zA-Z0-9]+/', '', $_GET['f']);
-    if ($name !== $_GET['f']) {
-        $name = '';
-    }
+if (isset($_GET['f']) && $_GET['f'] === preg_replace('/[^a-zA-Z0-9]+/', '', $_GET['f'])) {
+    $name = $_GET['f'];
 }
 
 if (!strlen($name)) {
