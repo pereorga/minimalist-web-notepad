@@ -11,7 +11,7 @@ header('Cache-Control: no-cache, no-store, must-revalidate');
 header('Pragma: no-cache');
 header('Expires: 0');
 
-// If provided file name is empty or has non-alphanumeric (ASCII) characters, discard it.
+// If provided note name is empty or has non-alphanumeric (ASCII) characters, discard it.
 if (!isset($_GET['note']) || !preg_match('/^[a-z0-9]+$/i', $_GET['note'])) {
 
     // Generate a random note name.
