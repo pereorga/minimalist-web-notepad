@@ -27,7 +27,7 @@ function uploadContent() {
         }
 
         // Send the request.
-        request.send('t=' + encodeURIComponent(temp));
+        request.send('text=' + encodeURIComponent(temp));
 
         // Make the content available to print.
         printable.removeChild(printable.firstChild);
