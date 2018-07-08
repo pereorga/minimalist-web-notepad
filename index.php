@@ -35,7 +35,7 @@ $path = "$data_directory/$name";
 
 if (isset($_POST['t'])) {
 
-    // If input is not empty (using empty() would not work for some falsy values)
+    // If input is not empty.
     if (strlen($_POST['t'])) {
 
         // Update file.
