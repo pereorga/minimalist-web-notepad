@@ -48,9 +48,8 @@ if (isset($_POST['text'])) {
     die;
 }
 
+// Output raw file if client is curl.
 if (strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0) {
-
-    // Output raw file if client is curl.
     if (is_file($path)) {
         print file_get_contents($path);
     }
