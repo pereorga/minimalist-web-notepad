@@ -12,9 +12,9 @@ header('Pragma: no-cache');
 header('Expires: 0');
 
 // If provided file name is empty or has non-alphanumeric (ASCII) characters, discard it.
-if (!isset($_GET['f']) || !preg_match('/^[a-z0-9]+$/i', $_GET['f'])) {
+if (!isset($_GET['note']) || !preg_match('/^[a-z0-9]+$/i', $_GET['note'])) {
 
-    // Generate a random name.
+    // Generate a random note name.
     $name_length = 5;
 
     // Initially based on http://stackoverflow.com/a/4356295/1391963
@@ -30,16 +30,15 @@ if (!isset($_GET['f']) || !preg_match('/^[a-z0-9]+$/i', $_GET['f'])) {
     die;
 }
 
-$name = $_GET['f'];
-$path = "$data_directory/$name";
+$path = "$data_directory/" . $_GET['note'];
 
-if (isset($_POST['t'])) {
+if (isset($_POST['text'])) {
 
     // If input is not empty.
-    if (strlen($_POST['t'])) {
+    if (strlen($_POST['text'])) {
 
         // Update file.
-        file_put_contents($path, $_POST['t']);
+        file_put_contents($path, $_POST['text']);
     }
     else {
 
@@ -63,7 +62,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Minimalist Web Notepad (https://github.com/pereorga/minimalist-web-notepad)">
-    <title><?php print $name; ?></title>
+    <title><?php print $_GET['note']; ?></title>
     <link rel="shortcut icon" href="<?php print $base_url; ?>/favicon.ico">
     <link rel="stylesheet" href="<?php print $base_url; ?>/styles.css">
 </head>
