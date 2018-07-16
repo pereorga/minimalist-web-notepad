@@ -3,9 +3,6 @@
 // Base URL of the website, without trailing slash.
 $base_url = 'https://notes.orga.cat';
 
-// Directory to save notes.
-$data_directory = '_tmp';
-
 // Disable caching.
 header('Cache-Control: no-cache, no-store, must-revalidate');
 header('Pragma: no-cache');
@@ -19,7 +16,8 @@ if (!isset($_GET['note']) || !preg_match('/^[a-zA-Z0-9]+$/', $_GET['note'])) {
     die;
 }
 
-$path = "$data_directory/" . $_GET['note'];
+// Path to store the note.
+$path = '_tmp/' . $_GET['note'];
 
 if (isset($_POST['text'])) {
 
