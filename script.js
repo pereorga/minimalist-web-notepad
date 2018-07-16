@@ -58,5 +58,4 @@ textarea.onkeydown = function(e) {
 }
 
 textarea.focus();
-
 uploadContent();
