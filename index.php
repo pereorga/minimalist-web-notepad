@@ -25,8 +25,6 @@ if (isset($_POST['text'])) {
         file_put_contents($path, $_POST['text']);
     }
     else {
-
-        // There is no need to keep an empty file, remove it.
         unlink($path);
     }
     die;
