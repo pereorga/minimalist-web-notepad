@@ -1,7 +1,6 @@
 /*! Minimalist Web Notepad | https://github.com/pereorga/minimalist-web-notepad */
 
 function uploadContent() {
-
     if (content !== textarea.value) {
 
         // Text area value has changed.
@@ -11,7 +10,6 @@ function uploadContent() {
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 
         request.onload = function() {
-
             if (request.readyState === 4) {
 
                 // Request has ended, check again after 1 second.
