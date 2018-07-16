@@ -1,9 +1,9 @@
 /*! Minimalist Web Notepad | https://github.com/pereorga/minimalist-web-notepad */
 
 function uploadContent() {
-    if (content !== textarea.value) {
 
-        // Text area value has changed.
+    // If textarea value changes.
+    if (content !== textarea.value) {
         var temp = textarea.value;
         var request = new XMLHttpRequest();
         request.open('POST', window.location.href, true);
@@ -20,7 +20,7 @@ function uploadContent() {
 
         request.onerror = function() {
 
-            // On connection error, try again after 1 second.
+            // Try again after 1 second.
             setTimeout(uploadContent, 1000);
         }
 
