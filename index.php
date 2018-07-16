@@ -11,22 +11,11 @@ header('Cache-Control: no-cache, no-store, must-revalidate');
 header('Pragma: no-cache');
 header('Expires: 0');
 
-// If provided note name is empty or has non-alphanumeric (ASCII) characters, discard it.
-if (!isset($_GET['note']) || !preg_match('/^[a-z0-9]+$/i', $_GET['note'])) {
+// If a note's name is not provided or contains non-alphanumeric/non-ASCII characters, discard it.
+if (!isset($_GET['note']) || !preg_match('/^[a-zA-Z0-9]+$/', $_GET['note'])) {
 
-    // Generate a random note name.
-    $name_length = 5;
-
-    // Initially based on http://stackoverflow.com/a/4356295/1391963
-    // Do not generate ambiguous characters. See http://ux.stackexchange.com/a/53345/25513
-    $characters = '23456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ';
-    $random_string = '';
-    for ($i = 0; $i < $name_length; ++$i) {
-        $random_string .= $characters[mt_rand(0, strlen($characters) - 1)];
-    }
-
-    // Redirect user to the new note.
-    header("Location: $base_url/$random_string");
+    // Generate a name with 5 random unambiguous characters. Redirect to it.
+    header("Location: $base_url/" . substr(str_shuffle('234579abcdefghjkmnpqrstwxyz'), -5));
     die;
 }
 
