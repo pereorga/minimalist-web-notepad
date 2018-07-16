@@ -16,15 +16,12 @@ if (!isset($_GET['note']) || !preg_match('/^[a-zA-Z0-9]+$/', $_GET['note'])) {
     die;
 }
 
-// Path to store the note.
 $path = '_tmp/' . $_GET['note'];
 
 if (isset($_POST['text'])) {
 
     // If input is not empty.
     if (strlen($_POST['text'])) {
-
-        // Update file.
         file_put_contents($path, $_POST['text']);
     }
     else {
