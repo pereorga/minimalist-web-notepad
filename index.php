@@ -20,11 +20,11 @@ $path = '_tmp/' . $_GET['note'];
 
 if (isset($_POST['text'])) {
 
-    // If input is not empty.
-    if (strlen($_POST['text'])) {
-        file_put_contents($path, $_POST['text']);
-    }
-    else {
+    // Update file.
+    file_put_contents($path, $_POST['text']);
+
+    // If provided input is empty, delete file.
+    if (!strlen($_POST['text'])) {
         unlink($path);
     }
     die;
