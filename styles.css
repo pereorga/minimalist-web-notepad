@@ -31,7 +31,7 @@ body {
 }
 
 @media print {
-    #content {
+    .container {
         display: none;
     }
     #printable {
