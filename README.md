@@ -32,7 +32,7 @@ location / {
 
 If notepad is in a subdirectory:
 ```
-location ~* ^/notes/(\w+)$ {
+location ~* ^/notes/([a-zA-Z0-9]+)$ {
     try_files $uri /notes/index.php?note=$1;
 }
 ```
