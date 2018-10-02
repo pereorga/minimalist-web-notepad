@@ -8,7 +8,7 @@ header('Cache-Control: no-cache, no-store, must-revalidate');
 header('Pragma: no-cache');
 header('Expires: 0');
 
-// If a note's name is not provided or contains non-alphanumeric/non-ASCII characters, - or _ allowed.
+// If a note's name is not provided or contains invalid characters.
 if (!isset($_GET['note']) || !preg_match('/^[a-zA-Z0-9_-]+$/', $_GET['note'])) {
 
     // Generate a name with 5 random unambiguous characters. Redirect to it.
