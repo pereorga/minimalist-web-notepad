@@ -1,6 +1,6 @@
 Options -Indexes
 RewriteEngine On
-RewriteRule ^([a-zA-Z0-9]+)$ index.php?note=$1
+RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?note=$1
 
 <IfModule mod_headers.c>
     Header set X-Robots-Tag: "noindex, nofollow"

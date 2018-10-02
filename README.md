@@ -26,13 +26,13 @@ To enable URL rewriting, put something like this in your configuration file:
 If notepad is in the root directory:
 ```
 location / {
-    rewrite ^/([a-zA-Z0-9]+)$ /index.php?note=$1;
+    rewrite ^/([a-zA-Z0-9_-]+)$ /index.php?note=$1;
 }
 ```
 
 If notepad is in a subdirectory:
 ```
-location ~* ^/notes/([a-zA-Z0-9]+)$ {
+location ~* ^/notes/([a-zA-Z0-9_-]+)$ {
     try_files $uri /notes/index.php?note=$1;
 }
 ```
