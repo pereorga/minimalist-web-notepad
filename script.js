@@ -45,15 +45,5 @@ var content = textarea.value;
 // Make the content available to print.
 printable.appendChild(document.createTextNode(content));
 
-// Enable TABs to indent. Based on https://stackoverflow.com/a/14166052/1391963
-textarea.onkeydown = function(e) {
-    if (e.keyCode === 9 || e.which === 9) {
-        e.preventDefault();
-        var s = this.selectionStart;
-        this.value = this.value.substring(0, this.selectionStart) + '\t' + this.value.substring(this.selectionEnd);
-        this.selectionEnd = s + 1;
-    }
-}
-
 textarea.focus();
 uploadContent();
