@@ -7,8 +7,7 @@ RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?note=$1
 </IfModule>
 
 # Uncomment the lines below to enable basic authentication.
-# Please note that it is secure only over https.
-# See https://httpd.apache.org/docs/2.4/programs/htpasswd.html for generating your .htpasswd
+# See https://httpd.apache.org/docs/current/programs/htpasswd.html for generating your .htpasswd
 
 # AuthType basic
 # AuthName "website.name"
