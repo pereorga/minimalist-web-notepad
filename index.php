@@ -12,7 +12,7 @@ header('Cache-Control: no-cache, no-store, must-revalidate');
 header('Pragma: no-cache');
 header('Expires: 0');
 
-// If a note's name is not provided or contains invalid characters.
+// If a note's name is not provided or contains invalid characters. Also prevent users from using really long names.
 if (!isset($_GET['note']) || !preg_match('/^[a-zA-Z0-9_-]+$/', $_GET['note']) || strlen($_GET['note']) > 64) {
 
     // Generate a name with 5 random unambiguous characters. Redirect to it.
@@ -39,6 +39,8 @@ if (isset($_GET['raw']) || strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0) {
     if (is_file($path)) {
         header('Content-type: text/plain');
         print file_get_contents($path);
+    } else {
+        header("HTTP/1.0 404 Not Found");
     }
     die;
 }
