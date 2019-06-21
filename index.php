@@ -40,7 +40,7 @@ if (isset($_GET['raw']) || strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0) {
         header('Content-type: text/plain');
         print file_get_contents($path);
     } else {
-        header("HTTP/1.0 404 Not Found");
+        header('HTTP/1.0 404 Not Found');
     }
     die;
 }
