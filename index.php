@@ -3,20 +3,24 @@
 // Base URL of the website, without trailing slash.
 $base_url = 'https://notes.orga.cat';
 
+// Path to the directory to save the notes in, without trailing slash.
+// Should be outside of the document root, if possible.
+$save_path = '_tmp';
+
 // Disable caching.
 header('Cache-Control: no-cache, no-store, must-revalidate');
 header('Pragma: no-cache');
 header('Expires: 0');
 
-// If a note's name is not provided or contains invalid characters.
-if (!isset($_GET['note']) || !preg_match('/^[a-zA-Z0-9_-]+$/', $_GET['note'])) {
+// If a note's name is not provided or contains invalid characters. Also prevent users from using really long names.
+if (!isset($_GET['note']) || !preg_match('/^[a-zA-Z0-9_-]+$/', $_GET['note']) || strlen($_GET['note']) > 64) {
 
     // Generate a name with 5 random unambiguous characters. Redirect to it.
     header("Location: $base_url/" . substr(str_shuffle('234579abcdefghjkmnpqrstwxyz'), -5));
     die;
 }
 
-$path = '_tmp/' . $_GET['note'];
+$path = $save_path . '/' . $_GET['note'];
 
 if (isset($_POST['text'])) {
 
@@ -30,10 +34,13 @@ if (isset($_POST['text'])) {
     die;
 }
 
-// Output raw file if client is curl.
-if (strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0) {
+// Output raw file if client is curl or explicitly requested.
+if (isset($_GET['raw']) || strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0) {
     if (is_file($path)) {
+        header('Content-type: text/plain');
         print file_get_contents($path);
+    } else {
+        header("HTTP/1.0 404 Not Found");
     }
     die;
 }
