@@ -30,6 +30,17 @@ body {
     display: none;
 }
 
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #000;
+    }
+    #content {
+        background: #000;
+        color: #32cd32;
+        border: 0;
+    }
+}
+
 @media print {
     .container {
         display: none;
