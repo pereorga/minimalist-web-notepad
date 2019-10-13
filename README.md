@@ -6,18 +6,6 @@ This is an open source clone of notepad.cc, which is now defunct.
 See demo at https://notes.orga.cat or https://notes.orga.cat/whatever.
 
 
-Screenshots
------------
-
-![Chrome](https://orga.cat/sites/default/files/images/chrome.png)
-
-![Edge](https://orga.cat/sites/default/files/images/edge.png)
-
-![Chrome Android](https://orga.cat/sites/default/files/images/android_chrome_dark.png)
-
-![Firefox Android](https://orga.cat/sites/default/files/images/android_firefox.png)
-
-
 Installation
 ------------
 
@@ -48,6 +36,18 @@ location ~* ^/notes/([a-zA-Z0-9_-]+)$ {
     try_files $uri /notes/index.php?note=$1;
 }
 ```
+
+
+Screenshots
+-----------
+
+![Chrome](https://orga.cat/sites/default/files/images/chrome.png)
+
+![Edge](https://orga.cat/sites/default/files/images/edge.png)
+
+![Chrome Android](https://orga.cat/sites/default/files/images/android_chrome_dark.png)
+
+![Firefox Android](https://orga.cat/sites/default/files/images/android_firefox.png)
 
 
 Copyright and license
