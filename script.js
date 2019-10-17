@@ -9,8 +9,6 @@ function uploadContent() {
 
         request.open('POST', window.location.href, true);
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-        request.send('text=' + encodeURIComponent(temp));
-
         request.onload = function() {
             if (request.readyState === 4) {
 
@@ -19,12 +17,12 @@ function uploadContent() {
                 setTimeout(uploadContent, 1000);
             }
         }
-
         request.onerror = function() {
 
             // Try again after 1 second.
             setTimeout(uploadContent, 1000);
         }
+        request.send('text=' + encodeURIComponent(temp));
 
         // Make the content available to print.
         printable.removeChild(printable.firstChild);
