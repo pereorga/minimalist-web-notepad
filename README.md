@@ -41,7 +41,9 @@ location ~* ^/notes/([a-zA-Z0-9_-]+)$ {
 Screenshots
 -----------
 
-![Chrome](https://orga.cat/sites/default/files/images/chrome.png)
+![Firefox](https://orga.cat/sites/default/files/images/firefox.png)
+
+![IE](https://orga.cat/sites/default/files/images/ie.png)
 
 ![Edge](https://orga.cat/sites/default/files/images/edge.png)
 
