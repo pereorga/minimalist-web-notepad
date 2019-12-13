@@ -49,6 +49,9 @@ docker run -itd --name minimalist-web-notepad -p 80:80 minimalist-web-notepad
 ```
 
 Alternatively, docker-compose can also be used.
+```
+docker-compose up -d
+```
 
 Screenshots
 -----------
