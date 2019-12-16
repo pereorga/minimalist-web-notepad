@@ -17,8 +17,7 @@ ADD . $APP_PATH
 RUN sed -ri -e 's!https://notes.orga.cat!!g' $APP_PATH/index.php
 
 # Set accesrights for Apache
-RUN chown -R www-data:www-data $APP_PATH && \
-    chmod -R 775 $APP_PATH/_tmp/
+RUN chown -R www-data:www-data $APP_PATH/_tmp
 
 # Create volumes
 VOLUME $APP_PATH/_tmp
