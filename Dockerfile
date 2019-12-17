@@ -13,10 +13,10 @@ RUN a2enmod rewrite
 WORKDIR $APP_PATH
 ADD . $APP_PATH
 
-# Remove default URL from configuration \$base_url
+# Remove default URL from configuration in $base_url
 RUN sed -ri -e 's!https://notes.orga.cat!!g' $APP_PATH/index.php
 
-# Set accesrights for Apache
+# Set access rights for Apache
 RUN chown -R www-data:www-data $APP_PATH/_tmp
 
 # Create volumes
