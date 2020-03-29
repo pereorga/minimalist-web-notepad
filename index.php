@@ -1,7 +1,17 @@
 <?php
+// Define URL PREFIX
+if ( !empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) !== 'off'
+  || isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https'
+  || !empty($_SERVER['HTTP_FRONT_END_HTTPS']) && strtolower($_SERVER['HTTP_FRONT_END_HTTPS']) !== 'off'
+) {
+  define('URL_PREFIX', 'https://');
+}else{
+  define('URL_PREFIX', 'http://');
+}
 
 // Base URL of the website, without trailing slash.
-$base_url =  getenv('MWN_BASE_URL') ?: 'https://notes.orga.cat';
+$base_url_default = URL_PREFIX.rtrim($_SERVER['HTTP_HOST'].str_replace('\\','/', dirname($_SERVER['PHP_SELF'])), '/');
+$base_url = getenv('MWN_BASE_URL') ?: $base_url_default;
 
 // Path to the directory to save the notes in, without trailing slash.
 // Should be outside of the document root, if possible.
