@@ -44,10 +44,11 @@ var content = textarea.value;
 // Make the content available to print.
 printable.appendChild(document.createTextNode(content));
 
-// Create tab spaces on 'Tab' key. From https://stackoverflow.com/questions/6637341/use-tab-to-indent-in-textarea 
+// Create tab spaces on 'Tab' key. 
+// From https://stackoverflow.com/questions/6637341/use-tab-to-indent-in-textarea
 textarea.onkeydown = function(e) {
 	tab_space=2;
-	if(e.keyCode===9){ 
+	if(e.keyCode===9){
 		var v=this.value, s=this.selectionStart, end=this.selectionEnd;
 		this.value=v.substring(0, s) + '  ' + v.substring(end);
 		this.selectionStart=this.selectionEnd=s+tab_space;
