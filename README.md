@@ -36,6 +36,35 @@ location ~* ^/notes/([a-zA-Z0-9_-]+)$ {
     try_files $uri /notes/index.php?note=$1;
 }
 ```
+### Docker
+
+Build the container:
+```
+docker build -t minimalist-web-notepad .
+```
+
+Start the container:
+```
+docker run -itd --name minimalist-web-notepad -p 80:80 minimalist-web-notepad
+```
+
+Alternatively, docker-compose can also be used:
+```
+docker-compose up -d
+```
+
+Screenshots
+-----------
+
+![Firefox](https://orga.cat/sites/default/files/images/firefox.png)
+
+![IE](https://orga.cat/sites/default/files/images/ie.png)
+
+![Edge](https://orga.cat/sites/default/files/images/edge.png)
+
+![Chrome Android](https://orga.cat/sites/default/files/images/android_chrome_dark.png)
+
+![Firefox Android](https://orga.cat/sites/default/files/images/android_firefox.png)
 
 
 Copyright and license
