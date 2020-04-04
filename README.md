@@ -1,4 +1,4 @@
-Minimalist Web Notepad - Forked from pereorga
+Minimalist Web Notepad
 ======================
 
 This is an open source clone of notepad.cc, which is now defunct.
