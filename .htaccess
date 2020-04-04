@@ -6,6 +6,11 @@ RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?note=$1
     Header set X-Robots-Tag: "noindex, nofollow"
 </IfModule>
 
+<Files "docker-compose.yml">  
+    Order Allow,Deny
+    Deny from all
+</Files>
+
 # Uncomment the lines below to enable basic authentication.
 # See https://httpd.apache.org/docs/current/programs/htpasswd.html for generating your .htpasswd
 
