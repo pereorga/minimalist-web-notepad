@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+# Create save path
+case "${MWN_SAVE_PATH:=_tmp}" in
+  /*) NOTES_PATH="$MWN_SAVE_PATH" ;;
+  *) NOTES_PATH="/var/www/html/$MWN_SAVE_PATH" ;;
+esac
+mkdir -p "$NOTES_PATH"
+cp "/var/www/html/notes.htaccess" "$NOTES_PATH/.htaccess"
+chown -R www-data:www-data "$NOTES_PATH"
+
+# Run default entrypoint
+exec docker-php-entrypoint "$@"
