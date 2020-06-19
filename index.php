@@ -34,7 +34,7 @@ if (isset($_POST['text'])) {
     die;
 }
 
-// Output raw file if client is curl or explicitly requested.
+// Print raw file if the client is curl, wget, or when explicitly requested.
 if (isset($_GET['raw']) || strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0 || strpos($_SERVER['HTTP_USER_AGENT'], 'Wget') === 0) {
     if (is_file($path)) {
         header('Content-type: text/plain');
