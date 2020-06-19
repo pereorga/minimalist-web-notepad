@@ -35,12 +35,17 @@ function uploadContent() {
     }
 }
 
-var textarea = document.getElementById('content');
-var printable = document.getElementById('printable');
-var content = textarea.value;
 
-// Make the content available to print.
-printable.appendChild(document.createTextNode(content));
+// Run when DOM is loaded
+var content, printable, textarea;
+window.onload = function() {
+    textarea = document.getElementById('content');
+    printable = document.getElementById('printable');
+    content = textarea.value
 
-textarea.focus();
-uploadContent();
+    // Make the content available to print.
+    printable.appendChild(document.createTextNode(content));
+
+    textarea.focus();
+    uploadContent();
+}
