@@ -1,13 +1,10 @@
-Minimalist Web Notepad
-======================
+# Minimalist Web Notepad
 
 This is an open source clone of notepad.cc, which is now defunct.
 
 See demo at https://notes.orga.cat or https://notes.orga.cat/whatever.
 
-
-Installation
-------------
+## Installation
 
 At the top of `index.php` file, change `$base_url` variable to point to your
 site.
@@ -36,6 +33,7 @@ location ~* ^/notes/([a-zA-Z0-9_-]+)$ {
     try_files $uri /notes/index.php?note=$1;
 }
 ```
+
 ### Docker
 
 Build the container:
@@ -53,8 +51,13 @@ Alternatively, docker-compose can also be used:
 docker-compose up -d
 ```
 
-Screenshots
------------
+#### Environment variables
+
+`MWN_BASE_URL`    The base URL for redirection and assets. Defaults to ''.
+
+`MWN_SAVE_PATH`   The path to save the notes to. Relative paths are relative to `index.php` location.
+
+## Screenshots
 
 ![Firefox](https://orga.cat/sites/default/files/images/firefox.png)
 
@@ -67,8 +70,7 @@ Screenshots
 ![Firefox Android](https://orga.cat/sites/default/files/images/android_firefox.png)
 
 
-Copyright and license
----------------------
+## Copyright and license
 
 Copyright 2012 Pere Orga <pere@orga.cat>
 
