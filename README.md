@@ -34,6 +34,7 @@ location ~* ^/notes/([a-zA-Z0-9_-]+)$ {
     try_files $uri /notes/index.php?note=$1;
 }
 ```
+
 ### Docker
 
 Build the container:
@@ -54,9 +55,13 @@ docker-compose up -d
 #### Environment variables
 
 `MWN_BASE_URL`    The base URL for redirection and assets. Defaults to ''.
+
 `MWN_SAVE_PATH`   The path to save the notes to. Relative paths are relative to `index.php` location.
+
 `MWN_ENCRYPTION`  Enable encryption when not empty.
+
 `MWN_CRYPTO_SALT` Random static salt to use for encryption.
+
 
 ## Screenshots
 
