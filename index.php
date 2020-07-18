@@ -7,6 +7,10 @@ $base_url = getenv('MWN_BASE_URL') ?: 'https://notes.orga.cat';
 // Should be outside of the document root, if possible.
 $save_path = getenv('MWN_SAVE_PATH') ?: '_tmp';
 
+// Salt for encryption
+$encryption = getenv('MWN_ENCRYPTION') ?: false;
+$salt = getenv('MWN_CRYPTO_SALT') ?: 'c36g0bZfykx254eyzQNZ8SNR0gT78D89';
+
 // Disable caching.
 header('Cache-Control: no-cache, no-store, must-revalidate');
 header('Pragma: no-cache');
@@ -16,7 +20,7 @@ header('Expires: 0');
 if (!isset($_GET['note']) || !preg_match('/^[a-zA-Z0-9_-]+$/', $_GET['note']) || strlen($_GET['note']) > 64) {
 
     // Generate a name with 5 random unambiguous characters. Redirect to it.
-    header("Location: $base_url/" . substr(str_shuffle('234579abcdefghjkmnpqrstwxyz'), -5));
+    header("Location: $base_url/" . substr(str_shuffle(str_repeat('23456789abcdefghjkmnpqrstwxyz', 5)), -5));
     die;
 }
 
@@ -63,6 +67,11 @@ if (isset($_GET['raw']) || strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0 || 
         ?></textarea>
     </div>
     <pre id="printable"></pre>
+    <script type="text/javascript">const CRYPT_ENABLED = <?php print $encryption ? "true" : "false"; ?>;</script>
+    <?php if ($encryption) : ?>
+        <script type="text/javascript">const SALT = "<?php print $salt; ?>";</script>
+        <script src="<?php print $base_url; ?>/crypt.js"></script>
+    <?php endif; ?>
     <script src="<?php print $base_url; ?>/script.js"></script>
 </body>
 </html>
