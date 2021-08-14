@@ -45,26 +45,12 @@ docker build -t minimalist-web-notepad .
 
 Start the container:
 ```
-docker run -d --name minimalist-web-notepad -p 80:80 minimalist-web-notepad
-```
-
-Show logs:
-```
-docker logs -f minimalist-web-notepad
-```
-
-Stop the container:
-```
-docker stop minimalist-web-notepad
+docker run -itd --name minimalist-web-notepad -p 80:80 minimalist-web-notepad
 ```
 
 Alternatively, docker-compose can also be used:
 ```
 docker-compose up -d
-```
-and
-```
-docker-compose down
 ```
 
 #### Environment variables
