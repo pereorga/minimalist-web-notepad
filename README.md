@@ -36,29 +36,6 @@ location ~* ^/notes/([a-zA-Z0-9_-]+)$ {
 }
 ```
 
-### Docker
-
-Build the container:
-```
-docker build -t minimalist-web-notepad .
-```
-
-Start the container:
-```
-docker run -itd --name minimalist-web-notepad -p 80:80 minimalist-web-notepad
-```
-
-Alternatively, docker-compose can also be used:
-```
-docker-compose up -d
-```
-
-#### Environment variables
-
-`MWN_BASE_URL`    The base URL for redirection and assets. Defaults to ''.
-
-`MWN_SAVE_PATH`   The path to save the notes to. Relative paths are relative to `index.php` location.
-
 ## Screenshots
 
 ![Firefox](https://orga.cat/sites/default/files/images/firefox.png)
