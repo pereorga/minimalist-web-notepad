@@ -6,9 +6,6 @@ ENV APP_PATH /var/www/minimalist-web-notepad
 RUN sed -ri -e 's!/var/www/html!${APP_PATH}!g' /etc/apache2/sites-available/*.conf
 RUN sed -ri -e 's!/var/www/!${APP_PATH}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 
-# Set PHP configuration to production
-RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
-
 # Enable rewrite
 RUN a2enmod rewrite
 
