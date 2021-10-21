@@ -36,19 +36,6 @@ location ~* ^/notes/([a-zA-Z0-9_-]+)$ {
 }
 ```
 
-## Screenshots
-
-![Firefox](https://orga.cat/sites/default/files/images/firefox.png)
-
-![IE](https://orga.cat/sites/default/files/images/ie.png)
-
-![Edge](https://orga.cat/sites/default/files/images/edge.png)
-
-![Chrome Android](https://orga.cat/sites/default/files/images/android_chrome_dark.png)
-
-![Firefox Android](https://orga.cat/sites/default/files/images/android_firefox.png)
-
-
 ## Copyright and license
 
 Copyright 2012 Pere Orga <pere@orga.cat>
