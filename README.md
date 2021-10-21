@@ -4,8 +4,6 @@ This is an open source clone of notepad.cc, which is now defunct.
 
 See demo at https://notes.orga.cat or https://notes.orga.cat/whatever.
 
-A version that allows for optional encryption using the Web Crypto API is available at the [encryption](https://github.com/pereorga/minimalist-web-notepad/tree/encryption) branch. A version with Docker is available at the [docker](https://github.com/pereorga/minimalist-web-notepad/tree/docker) branch.
-
 ## Installation
 
 At the top of `index.php` file, change `$base_url` variable to point to your
@@ -35,6 +33,13 @@ location ~* ^/notes/([a-zA-Z0-9_-]+)$ {
     try_files $uri /notes/index.php?note=$1;
 }
 ```
+
+## Branches
+
+To install it with Docker see the [docker](https://github.com/pereorga/minimalist-web-notepad/tree/docker) branch.
+
+A version that allows for encryption using the Web Crypto API is available at the [encryption](https://github.com/pereorga/minimalist-web-notepad/tree/encryption) branch.
+
 
 ## Copyright and license
 
