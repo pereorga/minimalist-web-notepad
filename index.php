@@ -38,7 +38,7 @@ if (isset($_POST['text'])) {
 if (isset($_GET['raw']) || strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0 || strpos($_SERVER['HTTP_USER_AGENT'], 'Wget') === 0) {
     if (is_file($path)) {
         header('Content-type: text/plain');
-        print file_get_contents($path);
+        readfile($path);
     } else {
         header('HTTP/1.0 404 Not Found');
     }
