@@ -4,21 +4,31 @@
 $base_url = 'https://notes.orga.cat';
 
 // Path to the directory to save the notes in, without trailing slash.
-// Should be outside the document root, if possible.
+// Should be outside of the document root, if possible.
 $save_path = '_tmp';
 
 // Disable caching.
-header('Cache-Control: no-store');
+header('Cache-Control: no-cache, no-store, must-revalidate');
+header('Pragma: no-cache');
+header('Expires: 0');
 
-// If no note name is provided, or if the name is too long, or if it contains invalid characters.
-if (!isset($_GET['note']) || strlen($_GET['note']) > 64 || !preg_match('/^[a-zA-Z0-9_-]+$/', $_GET['note'])) {
+$_note = $_GET['note'];
+$_raw = $_GET['raw'];
+
+if (strpos($_note, '~')>-1) {
+    $_raw = 1;
+    $_note = explode('~', $_note)[0];
+}
+
+// If no name is provided or it contains invalid characters or it is too long.
+if (!isset($_note) || !preg_match('/^[a-zA-Z0-9_-]+$/', $_note) || strlen($_note) > 64) {
 
     // Generate a name with 5 random unambiguous characters. Redirect to it.
     header("Location: $base_url/" . substr(str_shuffle('234579abcdefghjkmnpqrstwxyz'), -5));
     die;
 }
 
-$path = $save_path . '/' . $_GET['note'];
+$path = $save_path . '/' . $_note;
 
 if (isset($_POST['text'])) {
 
@@ -32,11 +42,11 @@ if (isset($_POST['text'])) {
     die;
 }
 
-// Print raw file when explicitly requested, or if the client is curl or wget.
-if (isset($_GET['raw']) || strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0 || strpos($_SERVER['HTTP_USER_AGENT'], 'Wget') === 0) {
+// Print raw file if the client is curl, wget, or when explicitly requested.
+if (isset($_raw) || strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0 || strpos($_SERVER['HTTP_USER_AGENT'], 'Wget') === 0) {
     if (is_file($path)) {
         header('Content-type: text/plain');
-        readfile($path);
+        print file_get_contents($path);
     } else {
         header('HTTP/1.0 404 Not Found');
     }
@@ -47,7 +57,7 @@ if (isset($_GET['raw']) || strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0 || 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php print $_GET['note']; ?></title>
+    <title><?php print $_note; ?></title>
     <link rel="icon" href="<?php print $base_url; ?>/favicon.ico" sizes="any">
     <link rel="icon" href="<?php print $base_url; ?>/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="<?php print $base_url; ?>/styles.css">
