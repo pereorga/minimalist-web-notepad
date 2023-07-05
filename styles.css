@@ -2,15 +2,31 @@
 
 body {
     margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;    
     background: #ebeef1;
 }
-.container {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    bottom: 20px;
-    left: 20px;
+
+.left {
+    width: 10%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
 }
+
+span{
+    color:white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.right {
+    width: 90%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
 #content {
     font-size: 100%;
     margin: 0;
@@ -26,6 +42,10 @@ body {
 }
 #printable {
     display: none;
+}
+
+#content{
+    font-family: 'Roboto', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
