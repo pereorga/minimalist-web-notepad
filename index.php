@@ -36,25 +36,25 @@ header('Cache-Control: no-store');
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // If no note name is provided, or if the name is too long, or if it contains invalid characters.
-if (!isset($_GET[ 'note' ]) || strlen($_GET[ 'note' ]) > 64 || !preg_match('/^[a-zA-Z0-9_\/-]+$/', $_GET[ 'note' ])) {
+if (!isset($_GET['note']) || strlen($_GET['note']) > 64 || !preg_match('/^[a-zA-Z0-9_\/-]+$/', $_GET['note'])) {
 
     // Generate a name with 5 random unambiguous characters. Redirect to it.
     header("Location: $base_url/" . substr(str_shuffle('234579abcdefghjkmnpqrstwxyz'), -5));
     die;
 }
 
-$path = $save_path . '/' . $_GET[ 'note' ];
+$path = $save_path . '/' . $_GET['note'];
 
-if (preg_match('/\//', $_GET[ 'note' ])) {
+if (preg_match('/\//', $_GET['note'])) {
     //folder structure
-    if (preg_match('/\/$/', $_GET[ 'note' ])) {
+    if (preg_match('/\/$/', $_GET['note'])) {
         //end in slash
-        $newdir = $_GET[ 'note' ];
+        $newdir = $_GET['note'];
         if (!is_dir($newdir)) {
             mkdir($newdir, 0777, true);
         }
         // Generate a name with 5 random unambiguous characters. Redirect to it.
-        header("Location: $base_url/" . $_GET[ 'note' ] . substr(str_shuffle('234579abcdefghjkmnpqrstwxyz'), -5));
+        header("Location: $base_url/" . $_GET['note'] . substr(str_shuffle('234579abcdefghjkmnpqrstwxyz'), -5));
         die;
     } else {
         $newdir = (dirname($path) . '/');
@@ -64,19 +64,19 @@ if (preg_match('/\//', $_GET[ 'note' ])) {
     }
 }
 
-if (isset($_POST[ 'text' ])) {
+if (isset($_POST['text'])) {
     // Update file.
-    file_put_contents($path, $_POST[ 'text' ]);
+    file_put_contents($path, $_POST['text']);
 
     // If provided input is empty, delete file.
-    if (!strlen($_POST[ 'text' ])) {
+    if (!strlen($_POST['text'])) {
         unlink($path);
     }
     die;
 }
 
 // Print raw file when explicitly requested, or if the client is curl or wget.
-if (isset($_GET[ 'raw' ]) || strpos($_SERVER[ 'HTTP_USER_AGENT' ], 'curl') === 0 || strpos($_SERVER[ 'HTTP_USER_AGENT' ], 'Wget') === 0) {
+if (isset($_GET['raw']) || strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0 || strpos($_SERVER['HTTP_USER_AGENT'], 'Wget') === 0) {
     if (is_file($path)) {
         header('Content-type: text/plain');
         readfile($path);
@@ -118,7 +118,7 @@ function showTree($path) {
     // To start, push folders from object into finalArray, files into tempArray
     foreach ($objectList as $objectRef) {
         $fileFolderName = rtrim(substr($objectRef->getPathname(), strlen($path)));
-        if ($objectRef->getFilename() != '.' && $fileFolderName[ strlen($fileFolderName)-1 ] != '/' && !strpos($fileFolderName, $excludeFileFolder)) {
+        if ($objectRef->getFilename() != '.' && $fileFolderName[strlen($fileFolderName)-1] != '/' && !strpos($fileFolderName, $excludeFileFolder)) {
             $fileFolderName != '/' && is_dir($path.$fileFolderName) ? array_push($finalArray, $fileFolderName) : array_push($tempArray, $fileFolderName);
         }
     }
@@ -126,8 +126,8 @@ function showTree($path) {
     // Now push root files onto the end of finalArray and splice from the temp, leaving only files that reside in subsirs
     for ($i = 0; $i<count($tempArray);
     $i++) {
-        if (count(explode('/', $tempArray[ $i ])) == 2) {
-            array_push($finalArray, $tempArray[ $i ]);
+        if (count(explode('/', $tempArray[$i])) == 2) {
+            array_push($finalArray, $tempArray[$i]);
             array_splice($tempArray, $i, 1);
             $i--;
         }
@@ -136,16 +136,16 @@ function showTree($path) {
     // Lastly we push remaining files into the right subdirs in finalArray
     for ($i = 0; $i<count($tempArray);
     $i++) {
-        $insertAt = array_search(dirname($tempArray[ $i ]), $finalArray)+1;
+        $insertAt = array_search(dirname($tempArray[$i]), $finalArray)+1;
         for ($j = $insertAt; $j<count($finalArray);
         $j++) {
-            if (strcasecmp(dirname($finalArray[ $j ]), dirname($tempArray[ $i ])) == 0 &&
-            strcasecmp(basename($finalArray[ $j ]), basename($tempArray[ $i ]))<0 ||
-            strstr(dirname($finalArray[ $j ]), dirname($tempArray[ $i ]))) {
+            if (strcasecmp(dirname($finalArray[$j]), dirname($tempArray[$i])) == 0 &&
+            strcasecmp(basename($finalArray[$j]), basename($tempArray[$i]))<0 ||
+            strstr(dirname($finalArray[$j]), dirname($tempArray[$i]))) {
                 $insertAt++;
             }
         }
-        array_splice($finalArray, $insertAt, 0, $tempArray[ $i ]);
+        array_splice($finalArray, $insertAt, 0, $tempArray[$i]);
     }
 
     // Finally, we have our ordered list, so display in a UL
@@ -153,7 +153,7 @@ function showTree($path) {
     $lastPath = '';
     for ($i = 0; $i<count($finalArray);
     $i++) {
-        $fileFolderName = $finalArray[ $i ];
+        $fileFolderName = $finalArray[$i];
         $thisDepth = count(explode('/', $fileFolderName));
         $lastDepth = count(explode('/', $lastPath));
         if ($thisDepth > $lastDepth) {
