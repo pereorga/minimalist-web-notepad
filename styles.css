@@ -9,9 +9,8 @@ body {
 }
 
 .left {
-    width: 10%;
+    width: 20%;
     height: 100%;
-    padding: 20px;
     box-sizing: border-box;
 }
 
@@ -21,7 +20,7 @@ span{
 }
 
 .right {
-    width: 90%;
+    width: 80%;
     height: 100%;
     padding: 20px;
     box-sizing: border-box;
@@ -42,10 +41,6 @@ span{
 }
 #printable {
     display: none;
-}
-
-#content{
-    font-family: 'Roboto', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
