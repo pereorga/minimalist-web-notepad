@@ -23,14 +23,14 @@ To enable URL rewriting, put something like this in your configuration file:
 If the project resides in the root directory:
 ```
 location / {
-    rewrite ^/([a-zA-Z0-9_-]+)$ /index.php?note=$1;
+    rewrite ^/([a-zA-Z0-9_-]+)$ /index.php?note=$1$is_args$args;
 }
 ```
 
 If the project resides in a subdirectory:
 ```
 location ~* ^/notes/([a-zA-Z0-9_-]+)$ {
-    try_files $uri /notes/index.php?note=$1;
+    try_files $uri /notes/index.php?note=$1$is_args$args;
 }
 ```
 
