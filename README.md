@@ -1,6 +1,6 @@
 # Minimalist Web Notepad
 
-This is an open source clone of notepad.cc, which is now defunct.
+This is an open-source clone of the now-defunct notepad.cc: "a piece of paper in the cloud".
 
 See demo at https://notes.orga.cat or https://notes.orga.cat/whatever.
 
