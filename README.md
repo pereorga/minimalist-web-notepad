@@ -34,9 +34,34 @@ location ~* ^/notes/([a-zA-Z0-9_-]+)$ {
 }
 ```
 
+## Usage (CLI)
+
+Using the command-line interface you can both save and retrieve notes. Here are some examples using `curl`:
+
+Retrieve a note's content and save it to a local file:
+
+```
+curl https://example.com/notes/test > test.txt
+```
+
+Save specific text to a note:
+
+```
+curl https://example.com/notes/test -d 'hello,
+
+welcome to my pad!
+'
+```
+
+Save the content of a local file (e.g., `/etc/hosts`) to a note:
+
+```
+cat /etc/hosts | curl https://example.com/notes/hosts --data-binary @-
+```
+
 ## Other examples
 
-There are git branches with examples using [Docker](https://github.com/pereorga/minimalist-web-notepad/tree/docker) the [Web Crypto API](https://github.com/pereorga/minimalist-web-notepad/tree/encryption).
+There are git branches with examples using [Docker](https://github.com/pereorga/minimalist-web-notepad/tree/docker) and the [Web Crypto API](https://github.com/pereorga/minimalist-web-notepad/tree/encryption).
 
 
 ## Copyright and license
