@@ -20,13 +20,13 @@ if (!isset($_GET['note']) || strlen($_GET['note']) > 64 || !preg_match('/^[a-zA-
 
 $path = $save_path . '/' . $_GET['note'];
 
-if (isset($_POST['text'])) {
-
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $text = isset($_POST['text']) ? $_POST['text'] : file_get_contents("php://input");
     // Update file.
-    file_put_contents($path, $_POST['text']);
+    file_put_contents($path, $text);
 
     // If provided input is empty, delete file.
-    if (!strlen($_POST['text'])) {
+    if (!strlen($text)) {
         unlink($path);
     }
     die;
