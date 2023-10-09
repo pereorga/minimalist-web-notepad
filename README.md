@@ -34,11 +34,9 @@ location ~* ^/notes/([a-zA-Z0-9_-]+)$ {
 }
 ```
 
-## Branches
+## Other examples
 
-To install it with Docker see the [docker](https://github.com/pereorga/minimalist-web-notepad/tree/docker) branch.
-
-A version that allows for encryption using the Web Crypto API is available at the [encryption](https://github.com/pereorga/minimalist-web-notepad/tree/encryption) branch.
+There are git branches with examples using [Docker](https://github.com/pereorga/minimalist-web-notepad/tree/docker) the [Web Crypto API](https://github.com/pereorga/minimalist-web-notepad/tree/encryption).
 
 
 ## Copyright and license
