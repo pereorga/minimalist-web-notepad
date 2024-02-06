@@ -1,0 +1,5 @@
+
+# misc
+.DS_Store
+./_tmp
+!./_tmp/.htaccess

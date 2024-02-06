@@ -1,5 +1,3 @@
-/*! Minimalist Web Notepad | https://github.com/pereorga/minimalist-web-notepad */
-
 async function uploadContent() {
 
     // If textarea value changes.

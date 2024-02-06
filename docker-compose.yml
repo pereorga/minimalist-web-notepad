@@ -1,13 +1,21 @@
-version: "2.4"
+version: "3.8"
 services:
-  minimalist-web-notepad:
+  notepad:
     build: .
-    container_name: minimalist-web-notepad
+    container_name: notepad
     restart: always
     ports:
      - "80:80"
     volumes:
-     - minimalist-web-notepad:/var/www/minimalist-web-notepad/_tmp
+     - notepad:/var/www/notepad/_tmp
+     - ./_tmp:/var/www/notepad/_tmp
+     - .:/var/www/notepad/
+
+    environment:
+    - MWN_BASE_URL=http://localhost
+    # - MWN_SAVE_PATH=
+    - MWN_ENCRYPTION=true
+    - MWN_CRYPTO_SALT=c36g0bZfykx254eyzQNZ8SNR0gT78D89
 
 volumes:
-  minimalist-web-notepad:
+  notepad:

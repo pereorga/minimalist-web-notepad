@@ -1,7 +1,9 @@
 <?php
 
 // Base URL of the website, without trailing slash.
-$base_url = getenv('MWN_BASE_URL') ?: 'https://notes.orga.cat';
+$protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://';
+$base_url = $protocol . $_SERVER['HTTP_HOST'];
+
 
 // Path to the directory to save the notes in, without trailing slash.
 // Should be outside of the document root, if possible.
@@ -67,7 +69,10 @@ if (isset($_GET['raw']) || strpos($_SERVER['HTTP_USER_AGENT'], 'curl') === 0 || 
         ?></textarea>
     </div>
     <pre id="printable"></pre>
-    <script type="text/javascript">const CRYPT_ENABLED = <?php print $encryption ? "true" : "false"; ?>;</script>
+    <script type="text/javascript">
+        const ipReg = /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/
+        const CRYPT_ENABLED = ipReg.test(window.location.host) && "127.0.0.1" !== window.location.host ? false : <?php print $encryption ? "true" : "false"; ?>;
+    </script>
     <?php if ($encryption) : ?>
         <script type="text/javascript">const SALT = "<?php print $salt; ?>";</script>
         <script src="<?php print $base_url; ?>/crypt.js"></script>

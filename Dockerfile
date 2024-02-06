@@ -1,6 +1,6 @@
 FROM php:7.4-apache
 
-ENV APP_PATH /var/www/minimalist-web-notepad
+ENV APP_PATH /var/www/notepad
 
 # Set Apache DocumentRoot to APP_PATH
 RUN sed -ri -e 's!/var/www/html!${APP_PATH}!g' /etc/apache2/sites-available/*.conf
