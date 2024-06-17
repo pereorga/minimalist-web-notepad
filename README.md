@@ -59,11 +59,6 @@ Save the content of a local file (e.g., `/etc/hosts`) to a note:
 cat /etc/hosts | curl https://example.com/notes/hosts --data-binary @-
 ```
 
-## Other examples
-
-There are git branches with examples using [Docker](https://github.com/pereorga/minimalist-web-notepad/tree/docker) and the [Web Crypto API](https://github.com/pereorga/minimalist-web-notepad/tree/encryption).
-
-
 ## Copyright and license
 
 Copyright 2012 Pere Orga <pere@orga.cat>
