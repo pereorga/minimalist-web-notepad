@@ -30,12 +30,12 @@ body {
 
 @media (prefers-color-scheme: dark) {
     body {
-        background: #383934;
+        background: #333b4d;
     }
     #content {
-        background: #282923;
-        color: #f8f8f2;
-        border: 0;
+        background: #24262b;
+        color: #fff;
+        border-color: #495265;
     }
 }
 
