@@ -10,7 +10,7 @@ Make sure the web server is allowed to write to the `_tmp` directory.
 
 ### On Apache
 
-You may need to enable mod_rewrite and set up `.htaccess` files in your site configuration.
+You may need to enable mod_rewrite and allow `.htaccess` files in your site configuration.
 See [How To Set Up mod_rewrite for Apache](https://www.digitalocean.com/community/tutorials/how-to-set-up-mod_rewrite-for-apache-on-ubuntu-14-04).
 
 ### On Nginx
