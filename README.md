@@ -6,9 +6,6 @@ See demo at https://notes.orga.cat or https://notes.orga.cat/whatever.
 
 ## Installation
 
-At the top of `index.php` file, change `$base_url` variable to point to your
-site.
-
 Make sure the web server is allowed to write to the `_tmp` directory.
 
 ### On Apache
