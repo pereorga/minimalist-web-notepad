@@ -1,9 +1,9 @@
-FROM httpd:alpine AS httpd
+FROM php:8-apache AS httpd
 
 WORKDIR /app
 
-COPY . /usr/local/apache2/htdocs/
+COPY . /var/www/html
 
-RUN chmod -R 770  /usr/local/apache2/htdocs/_tmp
+RUN chmod -R 770  /var/www/html/_tmp
 
 EXPOSE 80
