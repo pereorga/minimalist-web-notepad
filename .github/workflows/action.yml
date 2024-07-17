@@ -2,7 +2,10 @@ name: minimalist-web-notepad
 
 on:
   push:
-    branches: [ "main" ]
+    branches: 
+      - "dev"
+      - "master"
+      - "nightly"
 
   workflow_dispatch:
 
