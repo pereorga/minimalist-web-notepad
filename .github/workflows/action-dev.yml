@@ -1,4 +1,4 @@
-name: minimalist-web-notepad
+name: DEV-minimalist-web-notepad
 
 # Configures this workflow to run every time a change is pushed to the branch called `release`.
 on:
