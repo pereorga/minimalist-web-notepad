@@ -1,24 +1,24 @@
-name: App-down
+name: minimalist-web-notepad
 
 on:
-    push:
-        branches: [ "main" ]
+  push:
+    branches: [ "main" ]
 
-    workflow_dispatch:
+  workflow_dispatch:
 
-    permissions:
-        packages: write
-        contents: read
+permissions:
+  packages: write
+  contents: read
 
 jobs:
-    Build-all-images:
-        runs-on: ubuntu-latest
-        steps:
-          - uses: actions/checkout@v2
-            name: Checkout repository
+  Build-all-images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout repository
 
-          - name: "GHCR Push: Build and push Docker image"
-            uses: Its4Nik/NGX-action@3.1
-            with:
-            github-push-secret: ${{secrets.GITHUB_TOKEN}}
-            build-only: false
+      - name: "GHCR Push: Build and push Docker image"
+        uses: Its4Nik/NGX-action@3.1
+        with:
+          github-push-secret: ${{secrets.GITHUB_TOKEN}}
+          build-only: false
