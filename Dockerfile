@@ -9,4 +9,6 @@ RUN a2enmod rewrite
 
 COPY . .
 
+RUN chmod 770 /app/_tmp
+
 EXPOSE 80
