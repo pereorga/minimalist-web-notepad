@@ -1,7 +1,6 @@
 <div align="center">
 
 <a href="">[![minimalist-web-notepad](https://github.com/Its4Nik/minimalist-web-notepad/actions/workflows/action-master.yaml/badge.svg)](https://github.com/Its4Nik/minimalist-web-notepad/actions/workflows/action-master.yaml)</a>
-<a href="">[![DEV-minimalist-web-notepad](https://github.com/Its4Nik/minimalist-web-notepad/actions/workflows/action-dev.yml/badge.svg)](https://github.com/Its4Nik/minimalist-web-notepad/actions/workflows/action-dev.yml)</a>
 </div>
 
 # Minimalist Web Notepad
