@@ -1,3 +1,9 @@
+<p align="center">
+    [![minimalist-web-notepad](https://github.com/Its4Nik/minimalist-web-notepad/actions/workflows/action-master.yaml/badge.svg)](https://github.com/Its4Nik/minimalist-web-notepad/actions/workflows/action-master.yaml)
+
+    [![DEV-minimalist-web-notepad](https://github.com/Its4Nik/minimalist-web-notepad/actions/workflows/action-dev.yml/badge.svg)](https://github.com/Its4Nik/minimalist-web-notepad/actions/workflows/action-dev.yml)
+</p>
+
 # Minimalist Web Notepad
 
 This is an open-source clone of the now-defunct notepad.cc: "a piece of paper in the cloud".
