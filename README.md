@@ -15,8 +15,8 @@ See demo at https://notes.orga.cat or https://notes.orga.cat/whatever.
 
 Use [docker](https://docker.com) or docker compose.
 
-```docker
-docker run -p 1234:80 ghcr.io/Its4Nik/:latest
+```bash
+docker run -p 1234:80 ghcr.io/its4nik/minimalist-web-notepad:latest
 ```
 
 or
@@ -28,12 +28,14 @@ or
 
 services:
     minimalist-web-notepad:
-        image: ghcr.io/Its4Nik/:latest
+        image: ghcr.io/its4nik/minimalist-web-notepad:latest
         ports:
             - 1234:80 # Change the first value to change the port on which minimalist-web-notepad should be reachable
 ```
 
 ### Option 2
+
+Clone the repository
 
 Make sure the web server is allowed to write to the `_tmp` directory.
 
