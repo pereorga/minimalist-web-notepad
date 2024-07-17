@@ -9,6 +9,8 @@ RUN a2enmod rewrite
 
 COPY . .
 
-RUN chmod -R 770 /app/_tmp
+RUN chmod -R 777 /app/_tmp
 
 EXPOSE 80
+
+ENTRYPOINT [ "chmod", "-R", "777", "/app/_tmp" ]
