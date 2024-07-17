@@ -12,5 +12,3 @@ COPY . .
 RUN chmod -R 777 /app/_tmp
 
 EXPOSE 80
-
-ENTRYPOINT [ "chmod", "-R", "777", "/app/_tmp" ]
