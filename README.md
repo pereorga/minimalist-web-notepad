@@ -6,6 +6,30 @@ See demo at https://notes.orga.cat or https://notes.orga.cat/whatever.
 
 ## Installation
 
+### Option 1
+
+Use [docker](https://docker.com) or docker compose.
+
+```docker
+docker run -p 1234:80 ghcr.io/Its4Nik/:latest
+```
+
+or
+
+```yaml
+######## File: ########
+# docker-compose.yaml #
+#######################
+
+services:
+    minimalist-web-notepad:
+        image: ghcr.io/Its4Nik/:latest
+        ports:
+            - 1234:80 # Change the first value to change the port on which minimalist-web-notepad should be reachable
+```
+
+### Option 2
+
 Make sure the web server is allowed to write to the `_tmp` directory.
 
 ### On Apache
