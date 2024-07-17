@@ -25,3 +25,4 @@ jobs:
         with:
           github-push-secret: ${{secrets.GITHUB_TOKEN}}
           build-only: false
+          docker-image-name: minimalist-web-notepad
