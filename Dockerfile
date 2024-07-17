@@ -1,9 +1,13 @@
-FROM php:8-apache AS httpd
+FROM webdevops/php-apache
 
 WORKDIR /app
 
-COPY . /var/www/html
+ENV WEB_DOCUMENT_ROOT=/app
+ENV WEB_DOCUMENT_INDEX=index.php
 
-RUN chmod -R 770  /var/www/html/_tmp
+RUN a2enmod rewrite && \
+    systemctl restart
+
+COPY . .
 
 EXPOSE 80
