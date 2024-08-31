@@ -31,6 +31,14 @@ location ~* ^/notes/([a-zA-Z0-9_-]+)$ {
 }
 ```
 
+If parameters need to be passed in nginx (such as `?raw`):
+```
+# Add `&$args` to the end of the `$1` match in the rewrite rule.
+location ~* ^/notes/([a-zA-Z0-9_-]+)$ {
+    try_files $uri /notes/index.php?note=$1&$args;
+}
+```
+
 ## Usage (CLI)
 
 Using the command-line interface you can both save and retrieve notes. Here are some examples using `curl`:
