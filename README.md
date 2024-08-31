@@ -31,7 +31,7 @@ location ~* ^/notes/([a-zA-Z0-9_-]+)$ {
 }
 ```
 
-If parameters need to be passed in Nginx (such as `?raw`), then `&$args` needs to be added to the end of the `$1` match in the rewrite rule:
+If parameters need to be passed in Nginx (such as `?raw`), then `&$args` needs to be added to the end of the `$1` match:
 ```
 location ~* ^/notes/([a-zA-Z0-9_-]+)$ {
     try_files $uri /notes/index.php?note=$1&$args;
